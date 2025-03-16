@@ -178,15 +178,45 @@ music.Text = "music"
 music.TextColor3 = Color3.fromRGB(0, 0, 0)
 music.TextSize = 14.000
 music.MouseButton1Down:Connect(function()
-	local sound = Instance.new("Sound") -- Cria um novo objeto de som
-	sound.SoundId = "rbxassetid://142376088" -- ID da música (substitua por outro se quiser)
-	sound.Looped = true -- Faz a música tocar em loop
-	sound.Volume = 1 -- Volume do som (ajuste conforme necessário)
-	sound.Parent = game.SoundService -- Adiciona o som ao jogo
+	local soundId = "rbxassetid://142376088" -- ID da música (troque por outro se quiser)
+local volume = 2 -- Volume da música
 
-	sound:Play() -- Começa a tocar a música
+-- Função para remover todas as músicas existentes
+local function removeExistingMusic()
+    for _, obj in pairs(game.Workspace:GetDescendants()) do
+        if obj:IsA("Sound") then
+            obj:Destroy()
+        end
+    end
+end
 
-	print("Música adicionada ao jogo!")
+-- Função para impedir novas músicas
+local function blockNewMusic()
+    game.Workspace.DescendantAdded:Connect(function(obj)
+        if obj:IsA("Sound") and obj.SoundId ~= "rbxassetid://" .. soundId then
+            obj:Destroy()
+            warn("Uma música não autorizada foi removida!")
+        end
+    end)
+end
+
+-- Criar e tocar a música oficial
+local function playMainMusic()
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Looped = true
+    sound.Volume = volume
+    sound.Parent = game.Workspace
+    sound:Play()
+end
+
+-- Executa as funções
+removeExistingMusic()
+blockNewMusic()
+playMainMusic()
+
+print("Música oficial adicionada e músicas não autorizadas bloqueadas!")
+
 end)
 
 Particules.Name = "Particules"

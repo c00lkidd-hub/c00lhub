@@ -122,7 +122,7 @@ Particules.MouseButton1Down:Connect(function()
 		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
 		if not part:FindFirstChild("ParticleEmitter") then
 			local particle = Instance.new("ParticleEmitter")
-			particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula (substitua se quiser)
+			particle.Texture = "rbxassetid://10560525690" -- ID da textura da partícula (substitua se quiser)
 			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
 			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
 			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
@@ -531,7 +531,7 @@ jumscare.MouseButton1Down:Connect(function()
 	imageLabel.Name = "ImageLabel"
 	imageLabel.Size = UDim2.new(1, 0, 1, 0)  -- A ImageLabel vai ocupar a tela inteira
 	imageLabel.Position = UDim2.new(0, 0, 0, 0)  -- A posição é no canto superior esquerdo da tela
-	imageLabel.Image = "rbxassetid://10459746711"  -- Substitua <ID_TEXTOURA> pelo ID da textura desejada
+	imageLabel.Image = "rbxassetid://10560525690"  -- Substitua <ID_TEXTOURA> pelo ID da textura desejada
 	imageLabel.Parent = screenGui
 
 	-- Adicionando o áudio ao jogo

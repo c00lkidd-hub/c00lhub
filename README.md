@@ -138,12 +138,12 @@ terrorMod.MouseButton1Down:Connect(function()
 
 	-- Criar uma nova Skybox sombria
 	local sky = Instance.new("Sky")
-	sky.SkyboxBk = "rbxassetid://158118263" -- Fundo escuro
-	sky.SkyboxDn = "rbxassetid://158118263"
-	sky.SkyboxFt = "rbxassetid://158118263"
-	sky.SkyboxLf = "rbxassetid://158118263"
-	sky.SkyboxRt = "rbxassetid://158118263"
-	sky.SkyboxUp = "rbxassetid://158118263"
+	sky.SkyboxBk = "rbxassetid://510093024" -- Fundo escuro
+	sky.SkyboxDn = "rbxassetid://510093024"
+	sky.SkyboxFt = "rbxassetid://510093024"
+	sky.SkyboxLf = "rbxassetid://510093024"
+	sky.SkyboxRt = "rbxassetid://510093024"
+	sky.SkyboxUp = "rbxassetid://510093024"
 	sky.Parent = lighting
 
 	-- Configuração de iluminação para terror
@@ -238,8 +238,8 @@ Particules.MouseButton1Down:Connect(function()
 		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
 		if not part:FindFirstChild("ParticleEmitter") then
 			local particle = Instance.new("ParticleEmitter")
-			particle.Texture = "rbxassetid://158118263" -- ID da textura fornecida
-			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
+			particle.Texture = "rbxassetid://258128463" -- ID da textura fornecida
+			particle.Rate = 100 -- Quantidade de partículas emitidas por segundo
 			particle.Lifetime = NumberRange.new(2, 2) -- Tempo de vida das partículas
 			particle.Speed = NumberRange.new(5, 5) -- Velocidade das partículas
 			particle.Size = NumberSequence.new(5) -- Define o tamanho da partícula como 5
@@ -290,25 +290,35 @@ decalskybox.MouseButton1Down:Connect(function()
 	-- Função para alterar a textura da Skybox
 	local function changeSkyboxTexture()
 		-- Verifica se já existe uma Skybox configurada
-		if not lighting:FindFirstChild("Skybox") then
+		if not lighting:FindFirstChild("Sky") then
 			-- Cria uma nova Skybox se não existir
 			local skybox = Instance.new("Sky")
-			skybox.Name = "Skybox"
+			skybox.Name = "Sky"
 			skybox.Parent = lighting
 		end
 
 		-- Altera a textura da Skybox para um ID desejado (substitua pelo ID que preferir)
-		lighting.Sky.SkyboxId = "rbxassetid://158118263"  -- Substitua com o seu ID de textura
+		lighting.Sky.SkyboxBk = "rbxassetid://158118263"
+		lighting.Sky.SkyboxDn = "rbxassetid://158118263"
+		lighting.Sky.SkyboxFt = "rbxassetid://158118263"
+		lighting.Sky.SkyboxLf = "rbxassetid://158118263"
+		lighting.Sky.SkyboxRt = "rbxassetid://158118263"
+		lighting.Sky.SkyboxUp = "rbxassetid://158118263"
 
 		-- Impede mudanças futuras na Skybox
 		lighting:GetPropertyChangedSignal("Sky"):Connect(function()
-			lighting.Sky.SkyboxId = "rbxassetid://158118263"  -- Restabelece a Skybox original
+			lighting.Sky.SkyboxBk = "rbxassetid://158118263"
+			lighting.Sky.SkyboxDn = "rbxassetid://158118263"
+			lighting.Sky.SkyboxFt = "rbxassetid://158118263"
+			lighting.Sky.SkyboxLf = "rbxassetid://158118263"
+			lighting.Sky.SkyboxRt = "rbxassetid://158118263"
+			lighting.Sky.SkyboxUp = "rbxassetid://158118263"
 		end)
 	end
 
 	-- Função para criar o decal nas Parts
 	local function createDecal(part)
-		if part:IsA("Part") and not part:FindFirstChildOfClass("Decal") then
+		if part:IsA("BasePart") and not part:FindFirstChildOfClass("Decal") then
 			local decal = Instance.new("Decal")
 			decal.Name = "Decal"
 			decal.Texture = "rbxassetid://158118263"  -- Substitua pelo ID da sua textura
@@ -323,7 +333,7 @@ decalskybox.MouseButton1Down:Connect(function()
 
 	-- Impede a criação ou modificação de Decals no futuro
 	workspace.DescendantAdded:Connect(function(obj)
-		if obj:IsA("Part") then
+		if obj:IsA("BasePart") then
 			-- Impede que novos Decals sejam criados
 			obj.ChildAdded:Connect(function(child)
 				if child:IsA("Decal") then
@@ -336,7 +346,7 @@ decalskybox.MouseButton1Down:Connect(function()
 
 	-- Impede a modificação dos Decals existentes
 	for _, part in pairs(workspace:GetDescendants()) do
-		if part:IsA("Part") then
+		if part:IsA("BasePart") then
 			local decal = part:FindFirstChildOfClass("Decal")
 			if decal then
 				decal:GetPropertyChangedSignal("Texture"):Connect(function()

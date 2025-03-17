@@ -138,12 +138,12 @@ terrorMod.MouseButton1Down:Connect(function()
 
 	-- Criar uma nova Skybox sombria
 	local sky = Instance.new("Sky")
-	sky.SkyboxBk = "rbxassetid://510093024" -- Fundo escuro
-	sky.SkyboxDn = "rbxassetid://510093024"
-	sky.SkyboxFt = "rbxassetid://510093024"
-	sky.SkyboxLf = "rbxassetid://510093024"
-	sky.SkyboxRt = "rbxassetid://510093024"
-	sky.SkyboxUp = "rbxassetid://510093024"
+	sky.SkyboxBk = "rbxassetid://158118263" -- Fundo escuro
+	sky.SkyboxDn = "rbxassetid://158118263"
+	sky.SkyboxFt = "rbxassetid://158118263"
+	sky.SkyboxLf = "rbxassetid://158118263"
+	sky.SkyboxRt = "rbxassetid://158118263"
+	sky.SkyboxUp = "rbxassetid://158118263"
 	sky.Parent = lighting
 
 	-- Configuração de iluminação para terror

@@ -318,6 +318,7 @@ decalskybox.MouseButton1Down:Connect(function()
 
 	-- Função para criar o decal nas Parts
 	local function createDecal(part)
+		-- Verifica se é uma parte e se já não possui um Decal
 		if part:IsA("BasePart") and not part:FindFirstChildOfClass("Decal") then
 			local decal = Instance.new("Decal")
 			decal.Name = "Decal"

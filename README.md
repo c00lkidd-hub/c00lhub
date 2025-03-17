@@ -239,7 +239,7 @@ Particules.MouseButton1Down:Connect(function()
 		if not part:FindFirstChild("ParticleEmitter") then
 			local particle = Instance.new("ParticleEmitter")
 			particle.Texture = "rbxassetid://158118263" -- ID da textura fornecida
-			particle.Rate = 100 -- Quantidade de partículas emitidas por segundo
+			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
 			particle.Lifetime = NumberRange.new(2, 2) -- Tempo de vida das partículas
 			particle.Speed = NumberRange.new(5, 5) -- Velocidade das partículas
 			particle.Size = NumberSequence.new(5) -- Define o tamanho da partícula como 5

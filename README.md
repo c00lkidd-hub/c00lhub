@@ -4,82 +4,436 @@
 -- Instances:
 
 local MadeByenthony_50388 = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
+local c00lhub = Instance.new("Frame")
+local made = Instance.new("TextLabel")
+local commands = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local UICorner = Instance.new("UICorner")
+local LoopKillAll = Instance.new("TextButton")
+local Particules = Instance.new("TextButton")
+local Shutdown = Instance.new("TextButton")
 local blocs = Instance.new("TextButton")
+local decalskybox = Instance.new("TextButton")
+local KickOthers = Instance.new("TextButton")
+local music = Instance.new("TextButton")
 local spin = Instance.new("TextButton")
 local terrorMod = Instance.new("TextButton")
-local music = Instance.new("TextButton")
-local Particules = Instance.new("TextButton")
-local made = Instance.new("TextLabel")
-local decalskybox = Instance.new("TextButton")
+local jumscare = Instance.new("TextButton")
+local Destroy = Instance.new("TextButton")
+local Teleporteall = Instance.new("TextButton")
+local killAlll = Instance.new("TextButton")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
 --Properties:
 
-MadeByenthony_50388.Name = "MadeBy@enthony_50388"
+MadeByenthony_50388.Name = "MadeByenthony_50388"
 MadeByenthony_50388.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 MadeByenthony_50388.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+MadeByenthony_50388.IgnoreGuiInset = true
 
-Frame.Parent = MadeByenthony_50388
-Frame.BackgroundColor3 = Color3.fromRGB(66, 66, 66)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.703609884, 0, 0.735001028, 0)
-Frame.Size = UDim2.new(0, 468, 0, 250)
+c00lhub.Name = "c00lhub"
+c00lhub.Parent = MadeByenthony_50388
+c00lhub.BackgroundColor3 = Color3.fromRGB(66, 66, 66)
+c00lhub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+c00lhub.BorderSizePixel = 0
+c00lhub.Position = UDim2.new(0.704243183, 0, 0, 0)
+c00lhub.Size = UDim2.new(0, 467, 0, 943)
+
+made.Name = "made"
+made.Parent = c00lhub
+made.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+made.BorderColor3 = Color3.fromRGB(0, 0, 0)
+made.BorderSizePixel = 0
+made.Size = UDim2.new(0, 467, 0, 50)
+made.Text = "c00lhub Made by @enthony_50388"
+made.TextColor3 = Color3.fromRGB(255, 255, 255)
+made.TextScaled = true
+made.TextSize = 14.000
+made.TextWrapped = true
+
+commands.Name = "commands"
+commands.Parent = c00lhub
+commands.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+commands.BorderColor3 = Color3.fromRGB(0, 0, 0)
+commands.BorderSizePixel = 0
+commands.Position = UDim2.new(0.049186755, 0, 0.078472957, 0)
+commands.Size = UDim2.new(0, 432, 0, 853)
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(49, 0, 1))}
+UIGradient.Rotation = 25
+UIGradient.Parent = commands
+
+UICorner.Parent = commands
+
+LoopKillAll.Name = "LoopKillAll"
+LoopKillAll.Parent = commands
+LoopKillAll.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+LoopKillAll.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LoopKillAll.BorderSizePixel = 3
+LoopKillAll.Position = UDim2.new(0.650091648, 0, 0.809786379, 0)
+LoopKillAll.Size = UDim2.new(0, 113, 0, 106)
+LoopKillAll.Font = Enum.Font.Unknown
+LoopKillAll.Text = "Loop Kill All"
+LoopKillAll.TextColor3 = Color3.fromRGB(0, 0, 0)
+LoopKillAll.TextScaled = true
+LoopKillAll.TextSize = 14.000
+LoopKillAll.TextWrapped = true
+LoopKillAll.MouseButton1Down:Connect(function()
+	local Players = game:GetService("Players")
+
+	-- Função para matar um jogador
+	local function killPlayer(player)
+		if player.Character then
+			local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+			if humanoid then
+				humanoid.Health = 0
+			end
+		end
+	end
+
+	-- Loop infinito para matar todos os jogadores
+	while true do
+		for _, player in ipairs(Players:GetPlayers()) do
+			killPlayer(player)
+		end
+		wait(0.5) -- Tempo entre cada execução (evita sobrecarga)
+	end
+end)
+
+Particules.Name = "Particules"
+Particules.Parent = commands
+Particules.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+Particules.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Particules.BorderSizePixel = 3
+Particules.Position = UDim2.new(0.0376719721, 0, 0.0315201506, 0)
+Particules.Size = UDim2.new(0, 113, 0, 106)
+Particules.Font = Enum.Font.Unknown
+Particules.Text = "particules"
+Particules.TextColor3 = Color3.fromRGB(0, 0, 0)
+Particules.TextScaled = true
+Particules.TextSize = 14.000
+Particules.TextWrapped = true
+Particules.MouseButton1Down:Connect(function()
+	local function addParticlesToPart(part)
+		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
+		if not part:FindFirstChild("ParticleEmitter") then
+			local particle = Instance.new("ParticleEmitter")
+			particle.Texture = "rbxassetid://178993746" -- ID da textura fornecida
+			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
+			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
+			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
+			particle.Size = NumberSequence.new(5) -- Define o tamanho da partícula como 5
+			particle.SpreadAngle = Vector2.new(1000, 1000) -- Define a dispersão das partículas
+
+			particle.Parent = part -- Adiciona o emissor à peça
+		end
+	end
+
+	-- Percorre todas as Parts no jogo e adiciona partículas
+	for _, obj in pairs(workspace:GetDescendants()) do
+		if obj:IsA("Part") then
+			addParticlesToPart(obj)
+		end
+	end
+
+	print("ParticleEmitter adicionado a todas as Parts com tamanho e spreadAngle ajustados!")
+end)
+
+Shutdown.Name = "Shutdown"
+Shutdown.Parent = commands
+Shutdown.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+Shutdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Shutdown.BorderSizePixel = 3
+Shutdown.Position = UDim2.new(0.0376719721, 0, 0.601723492, 0)
+Shutdown.Size = UDim2.new(0, 399, 0, 106)
+Shutdown.Font = Enum.Font.Unknown
+Shutdown.Text = "Shutdown"
+Shutdown.TextColor3 = Color3.fromRGB(0, 0, 0)
+Shutdown.TextScaled = true
+Shutdown.TextSize = 14.000
+Shutdown.TextWrapped = true
+Shutdown.MouseButton1Down:Connect(function()
+	local Players = game:GetService("Players")
+
+	-- Mensagem antes do shutdown (opcional)
+	for _, player in ipairs(Players:GetPlayers()) do
+		player:Kick("🚨 O servidor foi destruido pelo c00lkidd!")
+	end
+
+	-- Desliga o servidor
+	game:Shutdown()
+end)
 
 blocs.Name = "blocs"
-blocs.Parent = Frame
+blocs.Parent = commands
 blocs.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 blocs.BorderColor3 = Color3.fromRGB(0, 0, 0)
 blocs.BorderSizePixel = 3
-blocs.Position = UDim2.new(0.02991453, 0, 0.786811471, 0)
-blocs.Size = UDim2.new(0, 200, 0, 50)
-blocs.Font = Enum.Font.SourceSans
+blocs.Position = UDim2.new(0.0376719721, 0, 0.395444185, 0)
+blocs.Size = UDim2.new(0, 113, 0, 106)
+blocs.Font = Enum.Font.Unknown
 blocs.Text = "blocks"
 blocs.TextColor3 = Color3.fromRGB(0, 0, 0)
+blocs.TextScaled = true
 blocs.TextSize = 14.000
+blocs.TextWrapped = true
 blocs.MouseButton1Down:Connect(function()
-	local spawnHeight = 1000  -- Altura onde os blocos aparecem
-	local fallInterval = 0.1    -- Intervalo entre cada bloco cair (segundos)
-	local spawnRange = 5000     -- Distância horizontal máxima para spawn
-	local despawnTime = 10    -- Tempo até os blocos desaparecerem (segundos)
+	local InsertService = game:GetService("InsertService")
+	local spawnHeight = 1000  -- Altura onde os modelos aparecem
+	local fallInterval = 0.5  -- Intervalo entre cada modelo cair (segundos)
+	local spawnRange = 1000   -- Distância horizontal máxima para spawn
+	local despawnTime = 5     -- Tempo até os modelos desaparecerem (segundos)
 
-	function spawnBlock()
-		local sizeFactor = math.random(10, 20) -- Aumenta o tamanho geral dos blocos
-		local block = Instance.new("Part")  
-		block.Size = Vector3.new(sizeFactor, sizeFactor, sizeFactor) -- Agora os blocos são maiores
-		block.Position = Vector3.new(math.random(-spawnRange, spawnRange), spawnHeight, math.random(-spawnRange, spawnRange))
-		block.Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)) -- Cor aleatória
-		block.Material = Enum.Material.SmoothPlastic
-		block.Anchored = false  -- Deixa os blocos caírem com a gravidade
-		block.CanCollide = false -- Agora os blocos atravessam tudo
-		block.Parent = game.Workspace
+	-- 🟢 ID do modelo da Toolbox que será spawnado
+	local modelID = 15325319 -- SUBSTITUA POR UM ID VÁLIDO!
 
-		-- Espera 10 segundos e remove o bloco
-		task.delay(despawnTime, function()
-			if block then
-				block:Destroy()
+	-- Função para spawnar o modelo
+	local function spawnModel()
+		local success, model = pcall(function()
+			return InsertService:LoadAsset(modelID)
+		end)
+
+		if success and model then
+			model.Parent = game.Workspace
+			model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart") -- Define uma PrimaryPart
+
+			if model.PrimaryPart then
+				local scaleFactor = math.random(100, 200) -- Aumenta o tamanho de 1x a 5x
+
+				-- Define posição inicial e remove a colisão
+				model:SetPrimaryPartCFrame(CFrame.new(
+					math.random(-spawnRange, spawnRange), 
+					spawnHeight, 
+					math.random(-spawnRange, spawnRange)
+					))
+
+				-- Percorre todas as partes do modelo para remover colisão e redimensionar
+				for _, part in ipairs(model:GetDescendants()) do
+					if part:IsA("BasePart") then
+						part.Anchored = false
+						part.CanCollide = false
+						part.Size = part.Size * scaleFactor -- Aplica o fator de escala
+					end
+				end
+			end
+
+			-- Espera um tempo e remove o modelo com verificação de existência
+			task.delay(despawnTime, function()
+				if model and model.Parent then
+					model:Destroy()
+				end
+			end)
+		else
+			warn("❌ Falha ao carregar o modelo da Toolbox! Verifique o ID.")
+		end
+	end
+
+	-- Loop para spawnar os modelos periodicamente sem travar o jogo
+	task.spawn(function()
+		while true do
+			spawnModel()
+			task.wait(fallInterval)
+		end
+	end)
+end)
+
+decalskybox.Name = "decal/skybox"
+decalskybox.Parent = commands
+decalskybox.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+decalskybox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+decalskybox.BorderSizePixel = 3
+decalskybox.Position = UDim2.new(0.34364602, 0, 0.0315201506, 0)
+decalskybox.Size = UDim2.new(0, 113, 0, 106)
+decalskybox.Font = Enum.Font.Unknown
+decalskybox.Text = "decal and skybox"
+decalskybox.TextColor3 = Color3.fromRGB(0, 0, 0)
+decalskybox.TextScaled = true
+decalskybox.TextSize = 14.000
+decalskybox.TextWrapped = true
+decalskybox.MouseButton1Down:Connect(function()
+	local lighting = game:GetService("Lighting")
+	local workspace = game:GetService("Workspace")
+
+	-- ID das texturas
+	local textureID = "rbxassetid://158118263"
+
+	-- 🟢 Função para alterar a textura da Skybox e impedir mudanças
+	local function changeSkyboxTexture()
+		-- Verifica se já existe uma Skybox configurada
+		local skybox = lighting:FindFirstChildOfClass("Sky")
+		if not skybox then
+			skybox = Instance.new("Sky")
+			skybox.Name = "Sky"
+			skybox.Parent = lighting
+		end
+
+		-- Define as texturas da Skybox
+		skybox.SkyboxBk = textureID
+		skybox.SkyboxDn = textureID
+		skybox.SkyboxFt = textureID
+		skybox.SkyboxLf = textureID
+		skybox.SkyboxRt = textureID
+		skybox.SkyboxUp = textureID
+
+		-- Protege a Skybox contra mudanças
+		skybox:GetPropertyChangedSignal("SkyboxBk"):Connect(function()
+			skybox.SkyboxBk = textureID
+		end)
+		skybox:GetPropertyChangedSignal("SkyboxDn"):Connect(function()
+			skybox.SkyboxDn = textureID
+		end)
+		skybox:GetPropertyChangedSignal("SkyboxFt"):Connect(function()
+			skybox.SkyboxFt = textureID
+		end)
+		skybox:GetPropertyChangedSignal("SkyboxLf"):Connect(function()
+			skybox.SkyboxLf = textureID
+		end)
+		skybox:GetPropertyChangedSignal("SkyboxRt"):Connect(function()
+			skybox.SkyboxRt = textureID
+		end)
+		skybox:GetPropertyChangedSignal("SkyboxUp"):Connect(function()
+			skybox.SkyboxUp = textureID
+		end)
+	end
+
+	-- 🟢 Função para adicionar um Decal em todas as Parts
+	local function applyDecalToObject(object)
+		if object:IsA("BasePart") then -- Verifica se é uma Part, MeshPart, etc.
+			-- Verifica se já tem um Decal para evitar duplicação
+			if not object:FindFirstChildOfClass("Decal") then
+				local decal = Instance.new("Decal")
+				decal.Texture = textureID
+				decal.Parent = object
+			end
+		end
+	end
+
+	-- 🟢 Aplica decals a tudo que já existe no Workspace
+	for _, obj in pairs(workspace:GetDescendants()) do
+		applyDecalToObject(obj)
+	end
+
+	-- 🟢 Garante que qualquer novo objeto que for adicionado ao Workspace também receba um Decal
+	workspace.DescendantAdded:Connect(function(obj)
+		applyDecalToObject(obj)
+	end)
+
+	-- Chama a função para mudar a Skybox
+	changeSkyboxTexture()
+
+	print("✅ Skybox alterada e Decals aplicados a todas as Parts no Workspace!")
+
+end)
+
+KickOthers.Name = "Kick Others"
+KickOthers.Parent = commands
+KickOthers.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+KickOthers.BorderColor3 = Color3.fromRGB(0, 0, 0)
+KickOthers.BorderSizePixel = 3
+KickOthers.Position = UDim2.new(0.343881667, 0, 0.809786379, 0)
+KickOthers.Size = UDim2.new(0, 113, 0, 106)
+KickOthers.Font = Enum.Font.Unknown
+KickOthers.Text = "Kick Others"
+KickOthers.TextColor3 = Color3.fromRGB(0, 0, 0)
+KickOthers.TextScaled = true
+KickOthers.TextSize = 14.000
+KickOthers.TextWrapped = true
+KickOthers.MouseButton1Down:Connect(function()
+	local Players = game:GetService("Players")
+	local owner = Players.LocalPlayer -- Quem executou o script
+
+	for _, player in ipairs(Players:GetPlayers()) do
+		if player ~= owner then
+			player:Kick("🚨 Kitado pelo time c00lkidd! lol")
+		end
+	end
+end)
+
+music.Name = "music"
+music.Parent = commands
+music.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+music.BorderColor3 = Color3.fromRGB(0, 0, 0)
+music.BorderSizePixel = 3
+music.Position = UDim2.new(0.34364602, 0, 0.210748315, 0)
+music.Size = UDim2.new(0, 113, 0, 106)
+music.Font = Enum.Font.Unknown
+music.Text = "music"
+music.TextColor3 = Color3.fromRGB(0, 0, 0)
+music.TextScaled = true
+music.TextSize = 14.000
+music.TextWrapped = true
+music.MouseButton1Down:Connect(function()
+	local soundId = "rbxassetid://142376088" -- ID da música oficial
+	local volume = 2 -- Volume da música
+
+	-- Função para remover todas as músicas não autorizadas
+	local function removeExistingMusic()
+		for _, obj in pairs(game.Workspace:GetDescendants()) do
+			if obj:IsA("Sound") and obj.SoundId ~= soundId then
+				obj:Destroy()
+				warn("Música não autorizada removida!")
+			end
+		end
+	end
+
+	-- Função para impedir que novas músicas sejam adicionadas
+	local function blockNewMusic()
+		game.Workspace.DescendantAdded:Connect(function(obj)
+			if obj:IsA("Sound") and obj.SoundId ~= soundId then
+				obj:Destroy()
+				warn("Tentativa de adicionar música bloqueada!")
 			end
 		end)
 	end
 
-	while true do
-		spawnBlock()
-		wait(fallInterval)
+	-- Função para garantir que a música oficial esteja sempre tocando
+	local function ensureMainMusic()
+		local sound = game.Workspace:FindFirstChild("MainMusic")
+
+		-- Se a música não existir, cria uma nova
+		if not sound then
+			sound = Instance.new("Sound")
+			sound.Name = "MainMusic"
+			sound.SoundId = soundId
+			sound.Looped = true
+			sound.Volume = volume
+			sound.Parent = game.Workspace
+			sound:Play()
+		end
+
+		-- Monitora a música para garantir que ela continue tocando
+		game:GetService("RunService").Stepped:Connect(function()
+			if not sound or not sound:IsDescendantOf(game) then
+				warn("Música oficial foi removida! Restaurando...")
+				ensureMainMusic()
+			elseif not sound.IsPlaying then
+				warn("Música foi pausada! Retomando...")
+				sound:Play()
+			end
+		end)
 	end
+
+	-- Executa as funções de proteção
+	removeExistingMusic()
+	blockNewMusic()
+	ensureMainMusic()
+
+	print("Proteção de música ativada! Hackers não poderão trocar a música.")
 end)
 
 spin.Name = "spin"
-spin.Parent = Frame
+spin.Parent = commands
 spin.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 spin.BorderColor3 = Color3.fromRGB(0, 0, 0)
 spin.BorderSizePixel = 3
-spin.Position = UDim2.new(0.552912235, 0, 0.786811471, 0)
-spin.Size = UDim2.new(0, 200, 0, 50)
-spin.Font = Enum.Font.SourceSans
+spin.Position = UDim2.new(0.344952047, 0, 0.395444185, 0)
+spin.Size = UDim2.new(0, 113, 0, 106)
+spin.Font = Enum.Font.Unknown
 spin.Text = "spin workspace"
 spin.TextColor3 = Color3.fromRGB(0, 0, 0)
+spin.TextScaled = true
 spin.TextSize = 14.000
+spin.TextWrapped = true
 spin.MouseButton1Down:Connect(function()
 	-- Script para girar todas as partes e modelos na diagonal, exceto os modelos com Humanoid
 
@@ -116,251 +470,169 @@ spin.MouseButton1Down:Connect(function()
 end)
 
 terrorMod.Name = "terrorMod"
-terrorMod.Parent = Frame
+terrorMod.Parent = commands
 terrorMod.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 terrorMod.BorderColor3 = Color3.fromRGB(0, 0, 0)
 terrorMod.BorderSizePixel = 3
-terrorMod.Position = UDim2.new(0.02991453, 0, 0.549504936, 0)
-terrorMod.Size = UDim2.new(0, 200, 0, 50)
-terrorMod.Font = Enum.Font.SourceSans
+terrorMod.Position = UDim2.new(0.0376719721, 0, 0.210748315, 0)
+terrorMod.Size = UDim2.new(0, 113, 0, 106)
+terrorMod.Font = Enum.Font.Unknown
 terrorMod.Text = "terrorMod"
 terrorMod.TextColor3 = Color3.fromRGB(0, 0, 0)
+terrorMod.TextScaled = true
 terrorMod.TextSize = 14.000
+terrorMod.TextWrapped = true
 terrorMod.MouseButton1Down:Connect(function()
-	local lighting = game:GetService("Lighting")
+	local Lighting = game:GetService("Lighting")
+	local SoundService = game:GetService("SoundService")
+	local RunService = game:GetService("RunService")
 
-	-- Remove qualquer Skybox existente
-	for _, obj in pairs(lighting:GetChildren()) do
-		if obj:IsA("Sky") then
+	-- 🔥 Configurações de Luz para um Ambiente de Terror 🔥 --
+	Lighting.Brightness = 0.1 -- Deixa mais escuro
+	Lighting.OutdoorAmbient = Color3.fromRGB(30, 0, 0) -- Luz externa vermelha
+	Lighting.Ambient = Color3.fromRGB(10, 0, 0) -- Luz ambiente escura
+	Lighting.FogColor = Color3.fromRGB(20, 0, 0) -- Cor da neblina
+	Lighting.FogEnd = 150 -- Intensidade da neblina
+
+	-- 🔥 Adiciona uma Skybox Sombria 🔥 --
+	local skybox = Lighting:FindFirstChild("TerrorSky")
+	if not skybox then
+		skybox = Instance.new("Sky")
+		skybox.Name = "TerrorSky"
+		skybox.Parent = Lighting
+	end
+
+	skybox.SkyboxBk = "rbxassetid://158118263" -- Fundo
+	skybox.SkyboxDn = "rbxassetid://158118263" -- Baixo
+	skybox.SkyboxFt = "rbxassetid://158118263" -- Frente
+	skybox.SkyboxLf = "rbxassetid://158118263" -- Esquerda
+	skybox.SkyboxRt = "rbxassetid://158118263" -- Direita
+	skybox.SkyboxUp = "rbxassetid://158118263" -- Cima
+
+	-- 🔥 Adiciona um Som Ambiente Assustador 🔥 --
+	local terrorSound = SoundService:FindFirstChild("TerrorAmbience")
+	if not terrorSound then
+		terrorSound = Instance.new("Sound")
+		terrorSound.Name = "TerrorAmbience"
+		terrorSound.SoundId = "rbxassetid://907280763" -- Som assustador
+		terrorSound.Looped = true
+		terrorSound.Volume = 2
+		terrorSound.Parent = SoundService
+		terrorSound:Play()
+	end
+
+	-- 🔥 Efeito de Flashing na Luz 🔥 --
+	RunService.Heartbeat:Connect(function()
+		Lighting.Brightness = 0.1 + math.random() * 0.05 -- Pequena variação para efeito sinistro
+	end)
+
+	print("🎃 MODO DE TERROR ATIVADO! 🎃")
+end)
+
+jumscare.Name = "jumscare"
+jumscare.Parent = commands
+jumscare.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+jumscare.BorderColor3 = Color3.fromRGB(0, 0, 0)
+jumscare.BorderSizePixel = 3
+jumscare.Position = UDim2.new(0.65037483, 0, 0.393660635, 0)
+jumscare.Size = UDim2.new(0, 113, 0, 106)
+jumscare.Font = Enum.Font.Unknown
+jumscare.Text = "jumpscare"
+jumscare.TextColor3 = Color3.fromRGB(0, 0, 0)
+jumscare.TextScaled = true
+jumscare.TextSize = 14.000
+jumscare.TextWrapped = true
+jumscare.MouseButton1Down:Connect(function()
+	
+end)
+
+Destroy.Name = "Destroy"
+Destroy.Parent = commands
+Destroy.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+Destroy.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Destroy.BorderSizePixel = 3
+Destroy.Position = UDim2.new(0.65037483, 0, 0.210748315, 0)
+Destroy.Size = UDim2.new(0, 113, 0, 106)
+Destroy.Font = Enum.Font.Unknown
+Destroy.Text = "Destroy"
+Destroy.TextColor3 = Color3.fromRGB(0, 0, 0)
+Destroy.TextScaled = true
+Destroy.TextSize = 14.000
+Destroy.TextWrapped = true
+Destroy.MouseButton1Down:Connect(function()
+	-- Cria a BaseParte
+	local baseParte = Instance.new("Part")
+	local SpawnPoint = Instance.new("SpawnLocation")
+	SpawnPoint.Parent = game.Workspace
+	SpawnPoint.Name = "SpawnPoint"
+	SpawnPoint.Position = Vector3.new(0, 5, 0) -- Ajuste a posição do SpawnPoint conforme necessário
+	baseParte.Name = "BaseParte"
+	baseParte.Size = Vector3.new(2048, 16, 2048) -- Defina o tamanho conforme necessário
+	baseParte.Position = Vector3.new(0, -8, 0) -- Defina a posição conforme necessário
+	baseParte.Anchored = true -- Para manter a BaseParte no lugar
+	baseParte.Parent = game.Workspace -- Adiciona a BaseParte ao Workspace
+
+	-- Função para remover partes que não são a BaseParte
+	for _, obj in pairs(game.Workspace:GetDescendants()) do
+		if obj:IsA("Part") and obj.Name ~= "BaseParte" then
 			obj:Destroy()
 		end
 	end
 
-	-- Criar uma nova Skybox sombria
-	local sky = Instance.new("Sky")
-	sky.SkyboxBk = "rbxassetid://510093024" -- Fundo escuro
-	sky.SkyboxDn = "rbxassetid://510093024"
-	sky.SkyboxFt = "rbxassetid://510093024"
-	sky.SkyboxLf = "rbxassetid://510093024"
-	sky.SkyboxRt = "rbxassetid://510093024"
-	sky.SkyboxUp = "rbxassetid://510093024"
-	sky.Parent = lighting
-
-	-- Configuração de iluminação para terror
-	lighting.Ambient = Color3.fromRGB(30, 0, 0) -- Luz avermelhada fraca
-	lighting.OutdoorAmbient = Color3.fromRGB(10, 10, 10) -- Luz externa escura
-	lighting.Brightness = 0.3 -- Reduz o brilho
-	lighting.FogColor = Color3.fromRGB(10, 10, 10) -- Neblina escura
-	lighting.FogStart = 10
-	lighting.FogEnd = 100 -- Neblina densa para visibilidade baixa
-	lighting.ClockTime = 0 -- Noite profunda
-	lighting.GlobalShadows = true -- Sombras realistas
-	lighting.Technology = Enum.Technology.Compatibility -- Efeito de sombra mais escuro
-
-	-- Adicionar um efeito de névoa com Atmosphere
-	local atmosphere = Instance.new("Atmosphere")
-	atmosphere.Density = 0.5 -- Mais neblina
-	atmosphere.Offset = 0
-	atmosphere.Color = Color3.fromRGB(50, 50, 50) -- Cinza escuro
-	atmosphere.Decay = Color3.fromRGB(10, 0, 0) -- Efeito avermelhado na distância
-	atmosphere.Glare = 0
-	atmosphere.Haze = 3
-	atmosphere.Parent = lighting
-
-	print("Modo terror ativado!")
+	print("BaseParte criada e outras partes removidas!")
 end)
 
-music.Name = "music"
-music.Parent = Frame
-music.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-music.BorderColor3 = Color3.fromRGB(0, 0, 0)
-music.BorderSizePixel = 3
-music.Position = UDim2.new(0.551282048, 0, 0.549504936, 0)
-music.Size = UDim2.new(0, 200, 0, 50)
-music.Font = Enum.Font.SourceSans
-music.Text = "music"
-music.TextColor3 = Color3.fromRGB(0, 0, 0)
-music.TextSize = 14.000
-music.MouseButton1Down:Connect(function()
-	local soundId = "rbxassetid://142376088" -- ID da música (troque por outro se quiser)
-	local volume = 1 -- Volume da música
+Teleporteall.Name = "Teleporte all"
+Teleporteall.Parent = commands
+Teleporteall.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+Teleporteall.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Teleporteall.BorderSizePixel = 3
+Teleporteall.Position = UDim2.new(0.65037483, 0, 0.0301224049, 0)
+Teleporteall.Size = UDim2.new(0, 113, 0, 106)
+Teleporteall.Font = Enum.Font.Unknown
+Teleporteall.Text = "Teleporte all"
+Teleporteall.TextColor3 = Color3.fromRGB(0, 0, 0)
+Teleporteall.TextScaled = true
+Teleporteall.TextSize = 14.000
+Teleporteall.TextWrapped = true
+Teleporteall.MouseButton1Down:Connect(function()
+	local Players = game:GetService("Players")
+	local owner = Players.LocalPlayer -- Quem executou o script
 
-	-- Função para remover todas as músicas existentes
-	local function removeExistingMusic()
-		for _, obj in pairs(game.Workspace:GetDescendants()) do
-			if obj:IsA("Sound") then
-				obj:Destroy()
+	if owner and owner.Character and owner.Character.PrimaryPart then
+		local targetPosition = owner.Character.PrimaryPart.Position -- Posição do executor
+
+		for _, player in ipairs(Players:GetPlayers()) do
+			if player ~= owner and player.Character and player.Character.PrimaryPart then
+				player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition + Vector3.new(0, 5, 0))) -- Teleporta um pouco acima
 			end
 		end
+	else
+		warn("🚨 O executor não tem um personagem válido para teleporte!")
 	end
-
-	-- Função para impedir novas músicas
-	local function blockNewMusic()
-		game.Workspace.DescendantAdded:Connect(function(obj)
-			if obj:IsA("Sound") and obj.SoundId ~= "rbxassetid://142376088" .. soundId then
-				obj:Destroy()
-				warn("Uma música não autorizada foi removida!")
-			end
-		end)
-	end
-
-	-- Criar e tocar a música oficial
-	local function playMainMusic()
-		local sound = Instance.new("Sound")
-		sound.SoundId = soundId
-		sound.Looped = true
-		sound.Volume = volume
-		sound.Parent = game.Workspace
-		sound:Play()
-	end
-
-	-- Executa as funções
-	removeExistingMusic()
-	blockNewMusic()
-	playMainMusic()
-
-	print("Música oficial adicionada e músicas não autorizadas bloqueadas!")
 end)
 
-Particules.Name = "Particules"
-Particules.Parent = Frame
-Particules.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-Particules.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Particules.BorderSizePixel = 3
-Particules.Position = UDim2.new(0.02991453, 0, 0.296706796, 0)
-Particules.Size = UDim2.new(0, 200, 0, 50)
-Particules.Font = Enum.Font.SourceSans
-Particules.Text = "particules"
-Particules.TextColor3 = Color3.fromRGB(0, 0, 0)
-Particules.TextSize = 14.000
-Particules.MouseButton1Down:Connect(function()
-	local function addParticlesToPart(part)
-		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
-		if not part:FindFirstChild("ParticleEmitter") then
-			local particle = Instance.new("ParticleEmitter")
-			particle.Texture = "rbxassetid://258128463" -- ID da textura fornecida
-			particle.Rate = 100 -- Quantidade de partículas emitidas por segundo
-			particle.Lifetime = NumberRange.new(2, 2) -- Tempo de vida das partículas
-			particle.Speed = NumberRange.new(5, 5) -- Velocidade das partículas
-			particle.Size = NumberSequence.new(5) -- Define o tamanho da partícula como 5
-			particle.SpreadAngle = Vector2.new(1000, 1000) -- Define a dispersão das partículas
-
-			particle.Parent = part -- Adiciona o emissor à peça
+killAlll.Name = "killAlll"
+killAlll.Parent = commands
+killAlll.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+killAlll.BorderColor3 = Color3.fromRGB(0, 0, 0)
+killAlll.BorderSizePixel = 3
+killAlll.Position = UDim2.new(0.0376719721, 0, 0.809786379, 0)
+killAlll.Size = UDim2.new(0, 113, 0, 106)
+killAlll.Font = Enum.Font.Unknown
+killAlll.Text = "Kill All"
+killAlll.TextColor3 = Color3.fromRGB(0, 0, 0)
+killAlll.TextScaled = true
+killAlll.TextSize = 14.000
+killAlll.TextWrapped = true
+killAlll.MouseButton1Down:Connect(function()
+	-- Script para matar todos os jogadores
+	for _, player in pairs(game.Players:GetPlayers()) do
+		-- Verifica se o jogador tem um personagem e se o personagem está vivo
+		if player.Character and player.Character:FindFirstChild("Humanoid") then
+			player.Character.Humanoid.Health = 0 -- Define a saúde do jogador para 0, matando-o
 		end
 	end
-
-	-- Percorre todas as Parts no jogo e adiciona partículas
-	for _, obj in pairs(workspace:GetDescendants()) do
-		if obj:IsA("Part") then
-			addParticlesToPart(obj)
-		end
-	end
-
-	print("ParticleEmitter adicionado a todas as Parts com tamanho e spreadAngle ajustados!")
-end)
-
-made.Name = "made"
-made.Parent = Frame
-made.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
-made.BorderColor3 = Color3.fromRGB(0, 0, 0)
-made.BorderSizePixel = 0
-made.Size = UDim2.new(0, 467, 0, 50)
-made.Font = Enum.Font.Unknown
-made.Text = "c00lhub Made by @enthony_50388"
-made.TextColor3 = Color3.fromRGB(255, 255, 255)
-made.TextScaled = true
-made.TextSize = 14.000
-made.TextWrapped = true
-
-decalskybox.Name = "decal/skybox"
-decalskybox.Parent = Frame
-decalskybox.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-decalskybox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-decalskybox.BorderSizePixel = 3
-decalskybox.Position = UDim2.new(0.551282048, 0, 0.296706796, 0)
-decalskybox.Size = UDim2.new(0, 200, 0, 50)
-decalskybox.Font = Enum.Font.SourceSans
-decalskybox.Text = "decal and skybox"
-decalskybox.TextColor3 = Color3.fromRGB(0, 0, 0)
-decalskybox.TextSize = 14.000
-decalskybox.MouseButton1Down:Connect(function()
-	local lighting = game:GetService("Lighting")
-	local workspace = game:GetService("Workspace")
-
-	-- Função para alterar a textura da Skybox
-	local function changeSkyboxTexture()
-		-- Verifica se já existe uma Skybox configurada
-		if not lighting:FindFirstChild("Sky") then
-			-- Cria uma nova Skybox se não existir
-			local skybox = Instance.new("Sky")
-			skybox.Name = "Sky"
-			skybox.Parent = lighting
-		end
-
-		-- Altera a textura da Skybox para um ID desejado (substitua pelo ID que preferir)
-		lighting.Sky.SkyboxBk = "rbxassetid://158118263"
-		lighting.Sky.SkyboxDn = "rbxassetid://158118263"
-		lighting.Sky.SkyboxFt = "rbxassetid://158118263"
-		lighting.Sky.SkyboxLf = "rbxassetid://158118263"
-		lighting.Sky.SkyboxRt = "rbxassetid://158118263"
-		lighting.Sky.SkyboxUp = "rbxassetid://158118263"
-
-		-- Impede mudanças futuras na Skybox
-		lighting:GetPropertyChangedSignal("Sky"):Connect(function()
-			lighting.Sky.SkyboxBk = "rbxassetid://158118263"
-			lighting.Sky.SkyboxDn = "rbxassetid://158118263"
-			lighting.Sky.SkyboxFt = "rbxassetid://158118263"
-			lighting.Sky.SkyboxLf = "rbxassetid://158118263"
-			lighting.Sky.SkyboxRt = "rbxassetid://158118263"
-			lighting.Sky.SkyboxUp = "rbxassetid://158118263"
-		end)
-	end
-
-	-- Função para criar o decal nas Parts
-	local function createDecal(part)
-		-- Verifica se é uma parte e se já não possui um Decal
-		if part:IsA("BasePart") and not part:FindFirstChildOfClass("Decal") then
-			local decal = Instance.new("Decal")
-			decal.Name = "Decal"
-			decal.Texture = "rbxassetid://158118263"  -- Substitua pelo ID da sua textura
-			decal.Parent = part
-		end
-	end
-
-	-- Cria Decals em todas as Parts existentes no Workspace
-	for _, part in pairs(workspace:GetDescendants()) do
-		createDecal(part)
-	end
-
-	-- Impede a criação ou modificação de Decals no futuro
-	workspace.DescendantAdded:Connect(function(obj)
-		if obj:IsA("BasePart") then
-			-- Impede que novos Decals sejam criados
-			obj.ChildAdded:Connect(function(child)
-				if child:IsA("Decal") then
-					child:Destroy()  -- Remove Decal assim que é criada
-					warn("Tentativa de criar Decal removida!")
-				end
-			end)
-		end
-	end)
-
-	-- Impede a modificação dos Decals existentes
-	for _, part in pairs(workspace:GetDescendants()) do
-		if part:IsA("BasePart") then
-			local decal = part:FindFirstChildOfClass("Decal")
-			if decal then
-				decal:GetPropertyChangedSignal("Texture"):Connect(function()
-					decal.Texture = "rbxassetid://158118263"  -- Restaura a textura original
-				end)
-			end
-		end
-	end
-
-	-- Chama a função para mudar a textura da Skybox
-	changeSkyboxTexture()
-
-	print("Skybox alterada, Decals criadas e proteção contra alterações ativada!")
 end)
 
 UIAspectRatioConstraint.Parent = MadeByenthony_50388

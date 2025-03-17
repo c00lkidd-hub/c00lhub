@@ -185,7 +185,7 @@ blocs.MouseButton1Down:Connect(function()
 	local despawnTime = 5     -- Tempo até os modelos desaparecerem (segundos)
 
 	-- 🟢 ID do modelo da Toolbox que será spawnado
-	local modelID = 15325319 -- SUBSTITUA POR UM ID VÁLIDO!
+	local modelID = 10615433240 -- SUBSTITUA POR UM ID VÁLIDO!
 
 	-- Função para spawnar o modelo
 	local function spawnModel()

@@ -21,7 +21,7 @@ local terrorMod = Instance.new("TextButton")
 local jumscare = Instance.new("TextButton")
 local Destroy = Instance.new("TextButton")
 local Teleporteall = Instance.new("TextButton")
-local killAlll = Instance.new("TextButton")
+local killAll = Instance.new("TextButton")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
 --Properties:
@@ -612,20 +612,20 @@ Teleporteall.MouseButton1Down:Connect(function()
 	end
 end)
 
-killAlll.Name = "killAlll"
-killAlll.Parent = commands
-killAlll.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-killAlll.BorderColor3 = Color3.fromRGB(0, 0, 0)
-killAlll.BorderSizePixel = 3
-killAlll.Position = UDim2.new(0.0376719721, 0, 0.809786379, 0)
-killAlll.Size = UDim2.new(0, 113, 0, 106)
-killAlll.Font = Enum.Font.Unknown
-killAlll.Text = "Kill All"
-killAlll.TextColor3 = Color3.fromRGB(0, 0, 0)
-killAlll.TextScaled = true
-killAlll.TextSize = 14.000
-killAlll.TextWrapped = true
-killAlll.MouseButton1Down:Connect(function()
+killAll.Name = "killAll"
+killAll.Parent = commands
+killAll.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+killAll.BorderColor3 = Color3.fromRGB(0, 0, 0)
+killAll.BorderSizePixel = 3
+killAll.Position = UDim2.new(0.0376719721, 0, 0.809786379, 0)
+killAll.Size = UDim2.new(0, 113, 0, 106)
+killAll.Font = Enum.Font.Unknown
+killAll.Text = "Kill All"
+killAll.TextColor3 = Color3.fromRGB(0, 0, 0)
+killAll.TextScaled = true
+killAll.TextSize = 14.000
+killAll.TextWrapped = true
+killAll.MouseButton1Down:Connect(function()
 	-- Script para matar todos os jogadores
 	for _, player in pairs(game.Players:GetPlayers()) do
 		-- Verifica se o jogador tem um personagem e se o personagem está vivo

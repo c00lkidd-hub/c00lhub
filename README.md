@@ -122,7 +122,7 @@ Particules.MouseButton1Down:Connect(function()
 		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
 		if not part:FindFirstChild("ParticleEmitter") then
 			local particle = Instance.new("ParticleEmitter")
-			particle.Texture = "rbxassetid://10560525690" -- ID da textura da partícula (substitua se quiser)
+			particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula (substitua se quiser)
 			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
 			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
 			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
@@ -227,57 +227,36 @@ decalskybox.MouseButton1Down:Connect(function()
 	local lighting = game:GetService("Lighting")
 	local workspace = game:GetService("Workspace")
 
-	-- ID das texturas
+	-- ID da textura para Skybox e Decals
 	local textureID = "rbxassetid://158118263"
 
 	-- 🟢 Função para alterar a textura da Skybox e impedir mudanças
 	local function changeSkyboxTexture()
-		-- Verifica se já existe uma Skybox configurada
 		local skybox = lighting:FindFirstChildOfClass("Sky")
+
 		if not skybox then
 			skybox = Instance.new("Sky")
-			skybox.Name = "Sky"
+			skybox.Name = "CustomSkybox"
 			skybox.Parent = lighting
 		end
 
-		-- Define as texturas da Skybox
-		skybox.SkyboxBk = textureID
-		skybox.SkyboxDn = textureID
-		skybox.SkyboxFt = textureID
-		skybox.SkyboxLf = textureID
-		skybox.SkyboxRt = textureID
-		skybox.SkyboxUp = textureID
-
-		-- Protege a Skybox contra mudanças
-		skybox:GetPropertyChangedSignal("SkyboxBk"):Connect(function()
-			skybox.SkyboxBk = textureID
-		end)
-		skybox:GetPropertyChangedSignal("SkyboxDn"):Connect(function()
-			skybox.SkyboxDn = textureID
-		end)
-		skybox:GetPropertyChangedSignal("SkyboxFt"):Connect(function()
-			skybox.SkyboxFt = textureID
-		end)
-		skybox:GetPropertyChangedSignal("SkyboxLf"):Connect(function()
-			skybox.SkyboxLf = textureID
-		end)
-		skybox:GetPropertyChangedSignal("SkyboxRt"):Connect(function()
-			skybox.SkyboxRt = textureID
-		end)
-		skybox:GetPropertyChangedSignal("SkyboxUp"):Connect(function()
-			skybox.SkyboxUp = textureID
-		end)
+		-- Aplica a textura em todas as direções da Skybox
+		for _, property in pairs({ "SkyboxBk", "SkyboxDn", "SkyboxFt", "SkyboxLf", "SkyboxRt", "SkyboxUp" }) do
+			skybox[property] = textureID
+			skybox:GetPropertyChangedSignal(property):Connect(function()
+				skybox[property] = textureID
+			end)
+		end
 	end
 
-	-- 🟢 Função para adicionar um Decal em todas as Parts
+	-- 🟢 Função para adicionar Decal a qualquer objeto
 	local function applyDecalToObject(object)
-		if object:IsA("BasePart") then -- Verifica se é uma Part, MeshPart, etc.
-			-- Verifica se já tem um Decal para evitar duplicação
-			if not object:FindFirstChildOfClass("Decal") then
-				local decal = Instance.new("Decal")
-				decal.Texture = textureID
-				decal.Parent = object
-			end
+		-- Apenas adiciona Decal se o objeto puder receber uma
+		if not object:IsA("Terrain") and not object:FindFirstChildOfClass("Decal") then
+			local decal = Instance.new("Decal")
+			decal.Texture = textureID
+			decal.Face = Enum.NormalId.Front  -- Define a face (pode alterar para outras direções)
+			decal.Parent = object
 		end
 	end
 
@@ -287,15 +266,12 @@ decalskybox.MouseButton1Down:Connect(function()
 	end
 
 	-- 🟢 Garante que qualquer novo objeto que for adicionado ao Workspace também receba um Decal
-	workspace.DescendantAdded:Connect(function(obj)
-		applyDecalToObject(obj)
-	end)
+	workspace.DescendantAdded:Connect(applyDecalToObject)
 
 	-- Chama a função para mudar a Skybox
 	changeSkyboxTexture()
 
-	print("✅ Skybox alterada e Decals aplicados a todas as Parts no Workspace!")
-
+	print("✅ Skybox alterada e Decals aplicados a TODOS os objetos no Workspace!")
 end)
 
 KickOthers.Name = "Kick Others"
@@ -523,7 +499,7 @@ jumscare.MouseButton1Down:Connect(function()
 	-- Criando a ScreenGui temporária
 	local screenGui = Instance.new("ScreenGui")
 	screenGui.Name = "TemporaryGui"
-	screenGui.Parent = player.PlayerGui
+	screenGui.Parent = player:FindFirstChildOfClass("PlayerGui") or player:WaitForChild("PlayerGui")
 	screenGui.IgnoreGuiInset = true
 
 	-- Criando a ImageLabel dentro da ScreenGui
@@ -531,20 +507,22 @@ jumscare.MouseButton1Down:Connect(function()
 	imageLabel.Name = "ImageLabel"
 	imageLabel.Size = UDim2.new(1, 0, 1, 0)  -- A ImageLabel vai ocupar a tela inteira
 	imageLabel.Position = UDim2.new(0, 0, 0, 0)  -- A posição é no canto superior esquerdo da tela
-	imageLabel.Image = "rbxassetid://10560525690"  -- Substitua <ID_TEXTOURA> pelo ID da textura desejada
+	imageLabel.Image = "rbxassetid://10459746711"  -- Substitua pelo ID da textura desejada
 	imageLabel.Parent = screenGui
 
 	-- Adicionando o áudio ao jogo
 	local sound = Instance.new("Sound")
 	sound.SoundId = "rbxassetid://130759239"  -- ID do áudio atualizado
-	sound.Parent = soundService
 	sound.Looped = true  -- Define o áudio para tocar em loop
+	sound.Parent = soundService
 	sound:Play()
 
 	-- Função para remover a ScreenGui após 10 segundos
-	wait(10)
-	sound:Stop()  -- Para o áudio
-	screenGui:Destroy()  -- Remove a ScreenGui
+	task.delay(10, function()
+		sound:Stop()  -- Para o áudio
+		screenGui:Destroy()  -- Remove a ScreenGui
+		sound:Destroy()  -- Remove o som após parar
+	end)
 end)
 
 Destroy.Name = "Destroy"

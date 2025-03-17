@@ -122,25 +122,23 @@ Particules.MouseButton1Down:Connect(function()
 		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
 		if not part:FindFirstChild("ParticleEmitter") then
 			local particle = Instance.new("ParticleEmitter")
-			particle.Texture = "rbxassetid://178993746" -- ID da textura fornecida
+			particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula (substitua se quiser)
 			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
 			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
 			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
-			particle.Size = NumberSequence.new(5) -- Define o tamanho da partícula como 5
-			particle.SpreadAngle = Vector2.new(1000, 1000) -- Define a dispersão das partículas
-
 			particle.Parent = part -- Adiciona o emissor à peça
 		end
 	end
 
-	-- Percorre todas as Parts no jogo e adiciona partículas
+	-- Percorre todos os objetos no jogo e adiciona partículas às Parts
 	for _, obj in pairs(workspace:GetDescendants()) do
 		if obj:IsA("Part") then
 			addParticlesToPart(obj)
 		end
 	end
 
-	print("ParticleEmitter adicionado a todas as Parts com tamanho e spreadAngle ajustados!")
+	print("ParticleEmitter adicionado a todas as Parts!")
+
 end)
 
 Shutdown.Name = "Shutdown"
@@ -182,63 +180,34 @@ blocs.TextScaled = true
 blocs.TextSize = 14.000
 blocs.TextWrapped = true
 blocs.MouseButton1Down:Connect(function()
-	local InsertService = game:GetService("InsertService")
-	local spawnHeight = 1000  -- Altura onde os modelos aparecem
-	local fallInterval = 0.5  -- Intervalo entre cada modelo cair (segundos)
-	local spawnRange = 1000   -- Distância horizontal máxima para spawn
-	local despawnTime = 5     -- Tempo até os modelos desaparecerem (segundos)
+	local spawnHeight = 1000  -- Altura onde os blocos aparecem
+	local fallInterval = 0.5    -- Intervalo entre cada bloco cair (segundos)
+	local spawnRange = 1000     -- Distância horizontal máxima para spawn
+	local despawnTime = 5    -- Tempo até os blocos desaparecerem (segundos)
 
-	-- 🟢 ID do modelo da Toolbox que será spawnado
-	local modelID = 15325319 -- SUBSTITUA POR UM ID VÁLIDO!
+	function spawnBlock()
+		local sizeFactor = math.random(200, 200, 200) -- Aumenta o tamanho geral dos blocos
+		local block = Instance.new("Part")  
+		block.Size = Vector3.new(sizeFactor, sizeFactor, sizeFactor) -- Agora os blocos são maiores
+		block.Position = Vector3.new(math.random(-spawnRange, spawnRange), spawnHeight, math.random(-spawnRange, spawnRange))
+		block.Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)) -- Cor aleatória
+		block.Material = Enum.Material.SmoothPlastic
+		block.Anchored = false  -- Deixa os blocos caírem com a gravidade
+		block.CanCollide = false -- Agora os blocos atravessam tudo
+		block.Parent = game.Workspace
 
-	-- Função para spawnar o modelo
-	local function spawnModel()
-		local success, model = pcall(function()
-			return InsertService:LoadAsset(modelID)
-		end)
-
-		if success and model then
-			model.Parent = game.Workspace
-			model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart") -- Define uma PrimaryPart
-
-			if model.PrimaryPart then
-				local scaleFactor = math.random(100, 200) -- Aumenta o tamanho de 1x a 5x
-
-				-- Define posição inicial e remove a colisão
-				model:SetPrimaryPartCFrame(CFrame.new(
-					math.random(-spawnRange, spawnRange), 
-					spawnHeight, 
-					math.random(-spawnRange, spawnRange)
-					))
-
-				-- Percorre todas as partes do modelo para remover colisão e redimensionar
-				for _, part in ipairs(model:GetDescendants()) do
-					if part:IsA("BasePart") then
-						part.Anchored = false
-						part.CanCollide = false
-						part.Size = part.Size * scaleFactor -- Aplica o fator de escala
-					end
-				end
+		-- Espera 10 segundos e remove o bloco
+		task.delay(despawnTime, function()
+			if block then
+				block:Destroy()
 			end
-
-			-- Espera um tempo e remove o modelo com verificação de existência
-			task.delay(despawnTime, function()
-				if model and model.Parent then
-					model:Destroy()
-				end
-			end)
-		else
-			warn("❌ Falha ao carregar o modelo da Toolbox! Verifique o ID.")
-		end
+		end)
 	end
 
-	-- Loop para spawnar os modelos periodicamente sem travar o jogo
-	task.spawn(function()
-		while true do
-			spawnModel()
-			task.wait(fallInterval)
-		end
-	end)
+	while true do
+		spawnBlock()
+		wait(fallInterval)
+	end
 end)
 
 decalskybox.Name = "decal/skybox"
@@ -547,7 +516,35 @@ jumscare.TextScaled = true
 jumscare.TextSize = 14.000
 jumscare.TextWrapped = true
 jumscare.MouseButton1Down:Connect(function()
-	
+	-- Referências ao serviço de sons e o LocalPlayer
+	local player = game.Players.LocalPlayer
+	local soundService = game:GetService("SoundService")
+
+	-- Criando a ScreenGui temporária
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = "TemporaryGui"
+	screenGui.Parent = player.PlayerGui
+	screenGui.IgnoreGuiInset = true
+
+	-- Criando a ImageLabel dentro da ScreenGui
+	local imageLabel = Instance.new("ImageLabel")
+	imageLabel.Name = "ImageLabel"
+	imageLabel.Size = UDim2.new(1, 0, 1, 0)  -- A ImageLabel vai ocupar a tela inteira
+	imageLabel.Position = UDim2.new(0, 0, 0, 0)  -- A posição é no canto superior esquerdo da tela
+	imageLabel.Image = "rbxassetid://10459746711"  -- Substitua <ID_TEXTOURA> pelo ID da textura desejada
+	imageLabel.Parent = screenGui
+
+	-- Adicionando o áudio ao jogo
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://130759239"  -- ID do áudio atualizado
+	sound.Parent = soundService
+	sound.Looped = true  -- Define o áudio para tocar em loop
+	sound:Play()
+
+	-- Função para remover a ScreenGui após 10 segundos
+	wait(10)
+	sound:Stop()  -- Para o áudio
+	screenGui:Destroy()  -- Remove a ScreenGui
 end)
 
 Destroy.Name = "Destroy"

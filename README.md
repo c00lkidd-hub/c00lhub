@@ -131,14 +131,17 @@ Particules.MouseButton1Down:Connect(function()
 			-- Verifica se já tem um ParticleEmitter para evitar duplicação
 			if not attachment:FindFirstChildOfClass("ParticleEmitter") then
 				local particle = Instance.new("ParticleEmitter")
-				particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula
+				particle.Texture = "rbxassetid://158118263" -- ID da textura da partícula
 				particle.Rate = 15  -- Quantidade de partículas emitidas por segundo
-				particle.Lifetime = NumberRange.new(2, 2)  -- Tempo de vida das partículas
+				particle.Lifetime = NumberRange.new(1, 2)  -- Tempo de vida das partículas
 				particle.Speed = NumberRange.new(2, 5)  -- Velocidade das partículas
+				particle.SpreadAngle = Vector2.new(1000, 1000) -- Define o ângulo de espalhamento das partículas
+				particle.Enabled = true -- Mantém as partículas sempre ativas
 				particle.Parent = attachment  -- O ParticleEmitter é filho do Attachment
-				particle.SpreadAngle = Vector2.new(1000, 1000) -- Ângulo de espessura do spread
-				particle.Enabled = true
-				particle.Name = "c00lkidd's"
+			else
+				-- Caso o ParticleEmitter já exista, garante que ele está ativado
+				local existingParticle = attachment:FindFirstChildOfClass("ParticleEmitter")
+				existingParticle.Enabled = true
 			end
 		end
 	end
@@ -153,7 +156,7 @@ Particules.MouseButton1Down:Connect(function()
 		addParticlesToPart(obj)
 	end)
 
-	print("✅ ParticleEmitter adicionado a todas as BaseParts no Workspace!")
+	print("✅ ParticleEmitter adicionado a todas as BaseParts no Workspace com SpreadAngle 1000 e habilitado!")
 end)
 
 Shutdown.Name = "Shutdown"

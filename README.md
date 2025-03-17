@@ -119,26 +119,39 @@ Particules.TextSize = 14.000
 Particules.TextWrapped = true
 Particules.MouseButton1Down:Connect(function()
 	local function addParticlesToPart(part)
-		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
-		if not part:FindFirstChild("ParticleEmitter") then
-			local particle = Instance.new("ParticleEmitter")
-			particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula (substitua se quiser)
-			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
-			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
-			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
-			particle.Parent = part -- Adiciona o emissor à peça
+		-- Verifica se o objeto é uma BasePart (Part, MeshPart, WedgePart, etc.)
+		if part:IsA("BasePart") then
+			-- Verifica se já tem um Attachment para evitar duplicação
+			local attachment = part:FindFirstChildOfClass("Attachment")
+			if not attachment then
+				attachment = Instance.new("Attachment")
+				attachment.Parent = part  -- O Attachment fica dentro da peça
+			end
+
+			-- Verifica se já tem um ParticleEmitter para evitar duplicação
+			if not attachment:FindFirstChildOfClass("ParticleEmitter") then
+				local particle = Instance.new("ParticleEmitter")
+				particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula
+				particle.Rate = 15  -- Quantidade de partículas emitidas por segundo
+				particle.Lifetime = NumberRange.new(2, 2)  -- Tempo de vida das partículas
+				particle.Speed = NumberRange.new(2, 5)  -- Velocidade das partículas
+				particle.Parent = attachment  -- O ParticleEmitter é filho do Attachment
+				particle.SpreadAngle = Vector2.new(1000, 1000) -- Ângulo de espessura do spread
+			end
 		end
 	end
 
-	-- Percorre todos os objetos no jogo e adiciona partículas às Parts
+	-- 🟢 Aplica partículas a todas as peças existentes no Workspace
 	for _, obj in pairs(workspace:GetDescendants()) do
-		if obj:IsA("Part") then
-			addParticlesToPart(obj)
-		end
+		addParticlesToPart(obj)
 	end
 
-	print("ParticleEmitter adicionado a todas as Parts!")
+	-- 🟢 Garante que qualquer novo objeto que for adicionado ao Workspace também receba partículas
+	workspace.DescendantAdded:Connect(function(obj)
+		addParticlesToPart(obj)
+	end)
 
+	print("✅ ParticleEmitter adicionado a todas as BaseParts no Workspace!")
 end)
 
 Shutdown.Name = "Shutdown"

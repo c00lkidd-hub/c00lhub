@@ -137,6 +137,8 @@ Particules.MouseButton1Down:Connect(function()
 				particle.Speed = NumberRange.new(2, 5)  -- Velocidade das partículas
 				particle.Parent = attachment  -- O ParticleEmitter é filho do Attachment
 				particle.SpreadAngle = Vector2.new(1000, 1000) -- Ângulo de espessura do spread
+				particle.Enabled = true
+				particle.Name = "c00lkidd's"
 			end
 		end
 	end

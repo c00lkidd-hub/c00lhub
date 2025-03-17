@@ -3,31 +3,35 @@
 
 -- Instances:
 
-local ScreenGui = Instance.new("ScreenGui")
+local MadeByenthony_50388 = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local blocs = Instance.new("TextButton")
 local spin = Instance.new("TextButton")
 local terrorMod = Instance.new("TextButton")
 local music = Instance.new("TextButton")
 local Particules = Instance.new("TextButton")
+local made = Instance.new("TextLabel")
+local decalskybox = Instance.new("TextButton")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
 --Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+MadeByenthony_50388.Name = "MadeBy@enthony_50388"
+MadeByenthony_50388.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+MadeByenthony_50388.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.Parent = MadeByenthony_50388
+Frame.BackgroundColor3 = Color3.fromRGB(66, 66, 66)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.703609884, 0, 0.769995689, 0)
-Frame.Size = UDim2.new(0, 468, 0, 217)
+Frame.Position = UDim2.new(0.703609884, 0, 0.735001028, 0)
+Frame.Size = UDim2.new(0, 468, 0, 250)
 
 blocs.Name = "blocs"
 blocs.Parent = Frame
-blocs.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+blocs.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 blocs.BorderColor3 = Color3.fromRGB(0, 0, 0)
-blocs.BorderSizePixel = 0
+blocs.BorderSizePixel = 3
 blocs.Position = UDim2.new(0.02991453, 0, 0.786811471, 0)
 blocs.Size = UDim2.new(0, 200, 0, 50)
 blocs.Font = Enum.Font.SourceSans
@@ -67,9 +71,9 @@ end)
 
 spin.Name = "spin"
 spin.Parent = Frame
-spin.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+spin.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 spin.BorderColor3 = Color3.fromRGB(0, 0, 0)
-spin.BorderSizePixel = 0
+spin.BorderSizePixel = 3
 spin.Position = UDim2.new(0.552912235, 0, 0.786811471, 0)
 spin.Size = UDim2.new(0, 200, 0, 50)
 spin.Font = Enum.Font.SourceSans
@@ -113,9 +117,9 @@ end)
 
 terrorMod.Name = "terrorMod"
 terrorMod.Parent = Frame
-terrorMod.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+terrorMod.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 terrorMod.BorderColor3 = Color3.fromRGB(0, 0, 0)
-terrorMod.BorderSizePixel = 0
+terrorMod.BorderSizePixel = 3
 terrorMod.Position = UDim2.new(0.02991453, 0, 0.549504936, 0)
 terrorMod.Size = UDim2.new(0, 200, 0, 50)
 terrorMod.Font = Enum.Font.SourceSans
@@ -168,9 +172,9 @@ end)
 
 music.Name = "music"
 music.Parent = Frame
-music.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+music.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 music.BorderColor3 = Color3.fromRGB(0, 0, 0)
-music.BorderSizePixel = 0
+music.BorderSizePixel = 3
 music.Position = UDim2.new(0.551282048, 0, 0.549504936, 0)
 music.Size = UDim2.new(0, 200, 0, 50)
 music.Font = Enum.Font.SourceSans
@@ -179,52 +183,51 @@ music.TextColor3 = Color3.fromRGB(0, 0, 0)
 music.TextSize = 14.000
 music.MouseButton1Down:Connect(function()
 	local soundId = "rbxassetid://142376088" -- ID da música (troque por outro se quiser)
-local volume = 2 -- Volume da música
+	local volume = 1 -- Volume da música
 
--- Função para remover todas as músicas existentes
-local function removeExistingMusic()
-    for _, obj in pairs(game.Workspace:GetDescendants()) do
-        if obj:IsA("Sound") then
-            obj:Destroy()
-        end
-    end
-end
+	-- Função para remover todas as músicas existentes
+	local function removeExistingMusic()
+		for _, obj in pairs(game.Workspace:GetDescendants()) do
+			if obj:IsA("Sound") then
+				obj:Destroy()
+			end
+		end
+	end
 
--- Função para impedir novas músicas
-local function blockNewMusic()
-    game.Workspace.DescendantAdded:Connect(function(obj)
-        if obj:IsA("Sound") and obj.SoundId ~= "rbxassetid://" .. soundId then
-            obj:Destroy()
-            warn("Uma música não autorizada foi removida!")
-        end
-    end)
-end
+	-- Função para impedir novas músicas
+	local function blockNewMusic()
+		game.Workspace.DescendantAdded:Connect(function(obj)
+			if obj:IsA("Sound") and obj.SoundId ~= "rbxassetid://142376088" .. soundId then
+				obj:Destroy()
+				warn("Uma música não autorizada foi removida!")
+			end
+		end)
+	end
 
--- Criar e tocar a música oficial
-local function playMainMusic()
-    local sound = Instance.new("Sound")
-    sound.SoundId = soundId
-    sound.Looped = true
-    sound.Volume = volume
-    sound.Parent = game.Workspace
-    sound:Play()
-end
+	-- Criar e tocar a música oficial
+	local function playMainMusic()
+		local sound = Instance.new("Sound")
+		sound.SoundId = soundId
+		sound.Looped = true
+		sound.Volume = volume
+		sound.Parent = game.Workspace
+		sound:Play()
+	end
 
--- Executa as funções
-removeExistingMusic()
-blockNewMusic()
-playMainMusic()
+	-- Executa as funções
+	removeExistingMusic()
+	blockNewMusic()
+	playMainMusic()
 
-print("Música oficial adicionada e músicas não autorizadas bloqueadas!")
-
+	print("Música oficial adicionada e músicas não autorizadas bloqueadas!")
 end)
 
 Particules.Name = "Particules"
 Particules.Parent = Frame
-Particules.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+Particules.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 Particules.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Particules.BorderSizePixel = 0
-Particules.Position = UDim2.new(0.286324799, 0, 0.172706708, 0)
+Particules.BorderSizePixel = 3
+Particules.Position = UDim2.new(0.02991453, 0, 0.296706796, 0)
 Particules.Size = UDim2.new(0, 200, 0, 50)
 Particules.Font = Enum.Font.SourceSans
 Particules.Text = "particules"
@@ -255,3 +258,99 @@ Particules.MouseButton1Down:Connect(function()
 
 	print("ParticleEmitter adicionado a todas as Parts com tamanho e spreadAngle ajustados!")
 end)
+
+made.Name = "made"
+made.Parent = Frame
+made.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+made.BorderColor3 = Color3.fromRGB(0, 0, 0)
+made.BorderSizePixel = 0
+made.Size = UDim2.new(0, 467, 0, 50)
+made.Font = Enum.Font.Unknown
+made.Text = "c00lhub Made by @enthony_50388"
+made.TextColor3 = Color3.fromRGB(255, 255, 255)
+made.TextScaled = true
+made.TextSize = 14.000
+made.TextWrapped = true
+
+decalskybox.Name = "decal/skybox"
+decalskybox.Parent = Frame
+decalskybox.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+decalskybox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+decalskybox.BorderSizePixel = 3
+decalskybox.Position = UDim2.new(0.551282048, 0, 0.296706796, 0)
+decalskybox.Size = UDim2.new(0, 200, 0, 50)
+decalskybox.Font = Enum.Font.SourceSans
+decalskybox.Text = "decal and skybox"
+decalskybox.TextColor3 = Color3.fromRGB(0, 0, 0)
+decalskybox.TextSize = 14.000
+decalskybox.MouseButton1Down:Connect(function()
+	local lighting = game:GetService("Lighting")
+	local workspace = game:GetService("Workspace")
+
+	-- Função para alterar a textura da Skybox
+	local function changeSkyboxTexture()
+		-- Verifica se já existe uma Skybox configurada
+		if not lighting:FindFirstChild("Skybox") then
+			-- Cria uma nova Skybox se não existir
+			local skybox = Instance.new("Sky")
+			skybox.Name = "Skybox"
+			skybox.Parent = lighting
+		end
+
+		-- Altera a textura da Skybox para um ID desejado (substitua pelo ID que preferir)
+		lighting.Sky.SkyboxId = "rbxassetid://158118263"  -- Substitua com o seu ID de textura
+
+		-- Impede mudanças futuras na Skybox
+		lighting:GetPropertyChangedSignal("Sky"):Connect(function()
+			lighting.Sky.SkyboxId = "rbxassetid://158118263"  -- Restabelece a Skybox original
+		end)
+	end
+
+	-- Função para criar o decal nas Parts
+	local function createDecal(part)
+		if part:IsA("Part") and not part:FindFirstChildOfClass("Decal") then
+			local decal = Instance.new("Decal")
+			decal.Name = "Decal"
+			decal.Texture = "rbxassetid://158118263"  -- Substitua pelo ID da sua textura
+			decal.Parent = part
+		end
+	end
+
+	-- Cria Decals em todas as Parts existentes no Workspace
+	for _, part in pairs(workspace:GetDescendants()) do
+		createDecal(part)
+	end
+
+	-- Impede a criação ou modificação de Decals no futuro
+	workspace.DescendantAdded:Connect(function(obj)
+		if obj:IsA("Part") then
+			-- Impede que novos Decals sejam criados
+			obj.ChildAdded:Connect(function(child)
+				if child:IsA("Decal") then
+					child:Destroy()  -- Remove Decal assim que é criada
+					warn("Tentativa de criar Decal removida!")
+				end
+			end)
+		end
+	end)
+
+	-- Impede a modificação dos Decals existentes
+	for _, part in pairs(workspace:GetDescendants()) do
+		if part:IsA("Part") then
+			local decal = part:FindFirstChildOfClass("Decal")
+			if decal then
+				decal:GetPropertyChangedSignal("Texture"):Connect(function()
+					decal.Texture = "rbxassetid://158118263"  -- Restaura a textura original
+				end)
+			end
+		end
+	end
+
+	-- Chama a função para mudar a textura da Skybox
+	changeSkyboxTexture()
+
+	print("Skybox alterada, Decals criadas e proteção contra alterações ativada!")
+end)
+
+UIAspectRatioConstraint.Parent = MadeByenthony_50388
+UIAspectRatioConstraint.AspectRatio = 1.674

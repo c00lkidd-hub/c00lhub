@@ -23,6 +23,7 @@ local Destroy = Instance.new("TextButton")
 local Teleporteall = Instance.new("TextButton")
 local killAll = Instance.new("TextButton")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local UIDragDetector = Instance.new("UIDragDetector")
 
 --Properties:
 
@@ -30,6 +31,9 @@ MadeByenthony_50388.Name = "MadeByenthony_50388"
 MadeByenthony_50388.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 MadeByenthony_50388.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 MadeByenthony_50388.IgnoreGuiInset = true
+
+UIDragDetector.Name = "UIDragDetector"
+UIDragDetector.Parent = c00lhub
 
 c00lhub.Name = "c00lhub"
 c00lhub.Parent = MadeByenthony_50388
@@ -185,7 +189,7 @@ blocs.MouseButton1Down:Connect(function()
 	local despawnTime = 5     -- Tempo até os modelos desaparecerem (segundos)
 
 	-- 🟢 ID do modelo da Toolbox que será spawnado
-	local modelID = 10615433240 -- SUBSTITUA POR UM ID VÁLIDO!
+	local modelID = 15325319 -- SUBSTITUA POR UM ID VÁLIDO!
 
 	-- Função para spawnar o modelo
 	local function spawnModel()

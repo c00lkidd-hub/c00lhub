@@ -501,7 +501,7 @@ jumscare.MouseButton1Down:Connect(function()
 	local SoundService = game:GetService("SoundService")
 
 	-- ID da imagem e do som
-	local IMAGE_ID = "rbxassetid://131168729011575"
+	local IMAGE_ID = "rbxassetid://10560525690"
 	local SOUND_ID = "rbxassetid://6754147732"
 
 	local function showGuiForPlayer(player)

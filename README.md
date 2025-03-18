@@ -185,10 +185,10 @@ blocs.TextScaled = true
 blocs.TextSize = 14.000
 blocs.TextWrapped = true
 blocs.MouseButton1Down:Connect(function()
-	local spawnHeight = 1000  -- Altura onde os blocos aparecem
+	local spawnHeight = 500  -- Altura onde os blocos aparecem
 	local fallInterval = 0.5    -- Intervalo entre cada bloco cair (segundos)
-	local spawnRange = 1000     -- Distância horizontal máxima para spawn
-	local despawnTime = 5    -- Tempo até os blocos desaparecerem (segundos)
+	local spawnRange = 100     -- Distância horizontal máxima para spawn
+	local despawnTime = 10    -- Tempo até os blocos desaparecerem (segundos)
 
 	function spawnBlock()
 		local sizeFactor = math.random(10, 20) -- Aumenta o tamanho geral dos blocos

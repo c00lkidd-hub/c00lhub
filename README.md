@@ -525,7 +525,7 @@ jumscare.MouseButton1Down:Connect(function()
 	imageLabel.Name = "ImageLabel"
 	imageLabel.Size = UDim2.new(1, 0, 1, 0)  -- A ImageLabel vai ocupar a tela inteira
 	imageLabel.Position = UDim2.new(0, 0, 0, 0)  -- A posição é no canto superior esquerdo da tela
-	imageLabel.Image = "rbxassetid://10459746711"  -- Substitua pelo ID da textura desejada
+	imageLabel.Image = "rbxassetid://158118263"  -- Substitua pelo ID da textura desejada
 	imageLabel.Parent = screenGui
 
 	-- Adicionando o áudio ao jogo

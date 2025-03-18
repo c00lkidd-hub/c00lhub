@@ -534,7 +534,6 @@ jumscare.MouseButton1Down:Connect(function()
 	sound.Looped = true  -- Define o áudio para tocar em loop
 	sound.Parent = soundService
 	sound:Play()
- 	sound:sound = 2
 
 	-- Função para remover a ScreenGui após 10 segundos
 	task.delay(10, function()

@@ -119,44 +119,26 @@ Particules.TextSize = 14.000
 Particules.TextWrapped = true
 Particules.MouseButton1Down:Connect(function()
 	local function addParticlesToPart(part)
-		-- Verifica se o objeto é uma BasePart (Part, MeshPart, WedgePart, etc.)
-		if part:IsA("BasePart") then
-			-- Verifica se já tem um Attachment para evitar duplicação
-			local attachment = part:FindFirstChildOfClass("Attachment")
-			if not attachment then
-				attachment = Instance.new("Attachment")
-				attachment.Parent = part  -- O Attachment fica dentro da peça
-			end
-
-			-- Verifica se já tem um ParticleEmitter para evitar duplicação
-			if not attachment:FindFirstChildOfClass("ParticleEmitter") then
-				local particle = Instance.new("ParticleEmitter")
-				particle.Texture = "rbxassetid://158118263" -- ID da textura da partícula
-				particle.Rate = 100  -- Quantidade de partículas emitidas por segundo
-				particle.Lifetime = NumberRange.new(4, 2)  -- Tempo de vida das partículas
-				particle.Speed = NumberRange.new(2, 5)  -- Velocidade das partículas
-				particle.SpreadAngle = Vector2.new(1000, 1000) -- Define o ângulo de espalhamento das partículas
-				particle.Enabled = true -- Mantém as partículas sempre ativas
-				particle.Parent = attachment  -- O ParticleEmitter é filho do Attachment
-			else
-				-- Caso o ParticleEmitter já exista, garante que ele está ativado
-				local existingParticle = attachment:FindFirstChildOfClass("ParticleEmitter")
-				existingParticle.Enabled = true
-			end
+		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
+		if not part:FindFirstChild("ParticleEmitter") then
+			local particle = Instance.new("ParticleEmitter")
+			particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula (substitua se quiser)
+			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
+			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
+			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
+			particle.Parent = part -- Adiciona o emissor à peça
 		end
 	end
 
-	-- 🟢 Aplica partículas a todas as peças existentes no Workspace
+	-- Percorre todos os objetos no jogo e adiciona partículas às Parts
 	for _, obj in pairs(workspace:GetDescendants()) do
-		addParticlesToPart(obj)
+		if obj:IsA("Part") then
+			addParticlesToPart(obj)
+		end
 	end
 
-	-- 🟢 Garante que qualquer novo objeto que for adicionado ao Workspace também receba partículas
-	workspace.DescendantAdded:Connect(function(obj)
-		addParticlesToPart(obj)
-	end)
+	print("ParticleEmitter adicionado a todas as Parts!")
 
-	print("✅ ParticleEmitter adicionado a todas as BaseParts no Workspace com SpreadAngle 1000 e habilitado!")
 end)
 
 Shutdown.Name = "Shutdown"
@@ -525,7 +507,7 @@ jumscare.MouseButton1Down:Connect(function()
 	imageLabel.Name = "ImageLabel"
 	imageLabel.Size = UDim2.new(1, 0, 1, 0)  -- A ImageLabel vai ocupar a tela inteira
 	imageLabel.Position = UDim2.new(0, 0, 0, 0)  -- A posição é no canto superior esquerdo da tela
-	imageLabel.Image = "rbxassetid://158118263"  -- Substitua pelo ID da textura desejada
+	imageLabel.Image = "rbxassetid://10459746711"  -- Substitua pelo ID da textura desejada
 	imageLabel.Parent = screenGui
 
 	-- Adicionando o áudio ao jogo

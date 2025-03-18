@@ -1,3 +1,8 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local MadeByenthony_50388 = Instance.new("ScreenGui")
 local c00lhub = Instance.new("Frame")
 local made = Instance.new("TextLabel")
@@ -24,6 +29,7 @@ local horror = Instance.new("TextButton")
 local TextLabel = Instance.new("TextLabel")
 local UIDragDetector = Instance.new("UIDragDetector")
 
+--Properties:
 
 MadeByenthony_50388.Name = "MadeByenthony_50388"
 MadeByenthony_50388.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")

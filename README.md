@@ -191,7 +191,7 @@ blocs.MouseButton1Down:Connect(function()
 	local despawnTime = 5    -- Tempo até os blocos desaparecerem (segundos)
 
 	function spawnBlock()
-		local sizeFactor = math.random(200, 200, 200) -- Aumenta o tamanho geral dos blocos
+		local sizeFactor = math.random(10, 20) -- Aumenta o tamanho geral dos blocos
 		local block = Instance.new("Part")  
 		block.Size = Vector3.new(sizeFactor, sizeFactor, sizeFactor) -- Agora os blocos são maiores
 		block.Position = Vector3.new(math.random(-spawnRange, spawnRange), spawnHeight, math.random(-spawnRange, spawnRange))
@@ -501,7 +501,7 @@ jumscare.MouseButton1Down:Connect(function()
 	local SoundService = game:GetService("SoundService")
 
 	-- ID da imagem e do som
-	local IMAGE_ID = "rbxassetid://178993746"
+	local IMAGE_ID = "rbxassetid://131168729011575"
 	local SOUND_ID = "rbxassetid://6754147732"
 
 	local function showGuiForPlayer(player)

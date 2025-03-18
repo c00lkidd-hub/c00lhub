@@ -512,7 +512,7 @@ jumscare.MouseButton1Down:Connect(function()
 
 	-- Adicionando o áudio ao jogo
 	local sound = Instance.new("Sound")
-	sound.SoundId = "rbxassetid://130759239"  -- ID do áudio atualizado
+	sound.SoundId = "rbxassetid://158118263"  -- ID do áudio atualizado
 	sound.Looped = true  -- Define o áudio para tocar em loop
 	sound.Parent = soundService
 	sound:Play()

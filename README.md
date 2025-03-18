@@ -132,8 +132,8 @@ Particules.MouseButton1Down:Connect(function()
 			if not attachment:FindFirstChildOfClass("ParticleEmitter") then
 				local particle = Instance.new("ParticleEmitter")
 				particle.Texture = "rbxassetid://158118263" -- ID da textura da partícula
-				particle.Rate = 15  -- Quantidade de partículas emitidas por segundo
-				particle.Lifetime = NumberRange.new(1, 2)  -- Tempo de vida das partículas
+				particle.Rate = 30  -- Quantidade de partículas emitidas por segundo
+				particle.Lifetime = NumberRange.new(4, 2)  -- Tempo de vida das partículas
 				particle.Speed = NumberRange.new(2, 5)  -- Velocidade das partículas
 				particle.SpreadAngle = Vector2.new(1000, 1000) -- Define o ângulo de espalhamento das partículas
 				particle.Enabled = true -- Mantém as partículas sempre ativas

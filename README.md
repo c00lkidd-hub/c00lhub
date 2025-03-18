@@ -23,6 +23,10 @@ local Destroy = Instance.new("TextButton")
 local Teleporteall = Instance.new("TextButton")
 local killAll = Instance.new("TextButton")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local serversfuckeds = Instance.new("Frame")
+local serverFucked = Instance.new("TextButton")
+local horror = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
 local UIDragDetector = Instance.new("UIDragDetector")
 
 --Properties:
@@ -103,6 +107,7 @@ LoopKillAll.MouseButton1Down:Connect(function()
 		wait(0.5) -- Tempo entre cada execução (evita sobrecarga)
 	end
 end)
+
 
 Particules.Name = "Particules"
 Particules.Parent = commands
@@ -492,36 +497,59 @@ jumscare.TextScaled = true
 jumscare.TextSize = 14.000
 jumscare.TextWrapped = true
 jumscare.MouseButton1Down:Connect(function()
-	-- Referências ao serviço de sons e o LocalPlayer
-	local player = game.Players.LocalPlayer
-	local soundService = game:GetService("SoundService")
+	local Players = game:GetService("Players")
+	local SoundService = game:GetService("SoundService")
 
-	-- Criando a ScreenGui temporária
-	local screenGui = Instance.new("ScreenGui")
-	screenGui.Name = "TemporaryGui"
-	screenGui.Parent = player:FindFirstChildOfClass("PlayerGui") or player:WaitForChild("PlayerGui")
-	screenGui.IgnoreGuiInset = true
+	-- ID da imagem e do som
+	local IMAGE_ID = "rbxassetid://10459746711"
+	local SOUND_ID = "rbxassetid://158118263"
 
-	-- Criando a ImageLabel dentro da ScreenGui
-	local imageLabel = Instance.new("ImageLabel")
-	imageLabel.Name = "ImageLabel"
-	imageLabel.Size = UDim2.new(1, 0, 1, 0)  -- A ImageLabel vai ocupar a tela inteira
-	imageLabel.Position = UDim2.new(0, 0, 0, 0)  -- A posição é no canto superior esquerdo da tela
-	imageLabel.Image = "rbxassetid://10459746711"  -- Substitua pelo ID da textura desejada
-	imageLabel.Parent = screenGui
+	local function showGuiForPlayer(player)
+		local playerGui = player:FindFirstChildOfClass("PlayerGui") or player:WaitForChild("PlayerGui")
 
-	-- Adicionando o áudio ao jogo
-	local sound = Instance.new("Sound")
-	sound.SoundId = "rbxassetid://158118263"  -- ID do áudio atualizado
-	sound.Looped = true  -- Define o áudio para tocar em loop
-	sound.Parent = soundService
-	sound:Play()
+		-- Criar a ScreenGui
+		local screenGui = Instance.new("ScreenGui")
+		screenGui.Name = "TemporaryGui"
+		screenGui.IgnoreGuiInset = true
+		screenGui.Parent = playerGui
 
-	-- Função para remover a ScreenGui após 10 segundos
-	task.delay(10, function()
-		sound:Stop()  -- Para o áudio
-		screenGui:Destroy()  -- Remove a ScreenGui
-		sound:Destroy()  -- Remove o som após parar
+		-- Criar a ImageLabel
+		local imageLabel = Instance.new("ImageLabel")
+		imageLabel.Name = "ImageLabel"
+		imageLabel.Size = UDim2.new(1, 0, 1, 0) -- Ocupa a tela inteira
+		imageLabel.Position = UDim2.new(0, 0, 0, 0)
+		imageLabel.Image = IMAGE_ID
+		imageLabel.Parent = screenGui
+
+		-- Criar e tocar o som
+		local sound = Instance.new("Sound")
+		sound.SoundId = SOUND_ID
+		sound.Looped = true
+		sound.Parent = SoundService
+		sound:Play()
+
+		-- Remover após 10 segundos
+		task.delay(10, function()
+			if screenGui then
+				screenGui:Destroy()
+			end
+			if sound then
+				sound:Stop()
+				sound:Destroy()
+			end
+		end)
+	end
+
+	-- Mostrar para todos os jogadores
+	for _, player in pairs(Players:GetPlayers()) do
+		showGuiForPlayer(player)
+	end
+
+	-- Garantir que novos jogadores também recebam a GUI
+	Players.PlayerAdded:Connect(function(player)
+		player.CharacterAdded:Connect(function()
+			showGuiForPlayer(player)
+		end)
 	end)
 end)
 
@@ -616,3 +644,148 @@ end)
 
 UIAspectRatioConstraint.Parent = MadeByenthony_50388
 UIAspectRatioConstraint.AspectRatio = 1.674
+
+serversfuckeds.Name = "servers fuckeds"
+serversfuckeds.Parent = MadeByenthony_50388
+serversfuckeds.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+serversfuckeds.BorderColor3 = Color3.fromRGB(0, 0, 0)
+serversfuckeds.BorderSizePixel = 0
+serversfuckeds.Position = UDim2.new(0, 0, 0.893955469, 0)
+serversfuckeds.Size = UDim2.new(0, 380, 0, 100)
+
+serverFucked.Name = "serverFucked"
+serverFucked.Parent = serversfuckeds
+serverFucked.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+serverFucked.BorderColor3 = Color3.fromRGB(0, 0, 0)
+serverFucked.BorderSizePixel = 3
+serverFucked.Position = UDim2.new(0, 0, 0.340000004, 0)
+serverFucked.Size = UDim2.new(0, 139, 0, 50)
+serverFucked.Font = Enum.Font.Unknown
+serverFucked.Text = "server fucked"
+serverFucked.TextColor3 = Color3.fromRGB(0, 0, 0)
+serverFucked.TextScaled = true
+serverFucked.TextSize = 14.000
+serverFucked.TextWrapped = true
+serverFucked.MouseButton1Down:Connect(function()
+	local Lighting = game:GetService("Lighting")
+	local Players = game:GetService("Players")
+
+	-- Função para simular a visão daltônica
+	local function setDaltonicMode()
+		-- Criando o efeito de ColorCorrection
+		local colorCorrection = Instance.new("ColorCorrectionEffect")
+		local colorCorrection2 = Instance.new("ColorCorrectionEffect")
+		colorCorrection.Enabled = true
+
+		-- Alterando as cores para simular um tipo de daltonismo
+		-- Essa combinação é apenas um exemplo e pode ser ajustada conforme necessário
+		colorCorrection.TintColor = Color3.fromRGB(99, 239, 255) -- Colocando um tom amarelado
+		colorCorrection.Saturation = -1  -- Reduzindo bastante a saturação para uma visão mais apagada
+		colorCorrection.Contrast =  100000002004087734272    -- Aumentando o contraste para intensificar a diferença nas cores
+		colorCorrection.Brightness = 0.1   -- Aumentando o brilho para deixar a cena mais iluminada
+		colorCorrection2.TintColor = Color3.fromRGB(255, 0, 4) -- Colocando um tom amarelado
+		colorCorrection2.Saturation = -1  -- Reduzindo bastante a saturação para uma visão mais apagada
+		colorCorrection2.Contrast =  100000002004087734272    -- Aumentando o contraste para intensificar a diferença nas cores
+		colorCorrection2.Brightness = 0.1 
+
+		-- Aplica o efeito de daltonismo no serviço de iluminação
+		colorCorrection.Parent = Lighting
+	end
+
+	-- Função para remover o Humanoid de todos os jogadores
+	local function removeHumanoid()
+		for _, player in pairs(Players:GetPlayers()) do
+			local character = player.Character
+			if character and character:FindFirstChild("Humanoid") then
+				local humanoid = character:FindFirstChild("Humanoid")
+				humanoid:Destroy()  -- Remove o Humanoid
+			end
+		end
+	end
+
+	-- Chamando as funções
+	removeHumanoid()
+	setDaltonicMode()
+end)
+
+horror.Name = "UnAnchorAll"
+horror.Parent = serversfuckeds
+horror.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+horror.BorderColor3 = Color3.fromRGB(0, 0, 0)
+horror.BorderSizePixel = 3
+horror.Position = UDim2.new(0.495356023, 0, 0.340000004, 0)
+horror.Size = UDim2.new(0, 139, 0, 50)
+horror.Font = Enum.Font.Unknown
+horror.Text = "UnAnchorAll"
+horror.TextColor3 = Color3.fromRGB(0, 0, 0)
+horror.TextScaled = true
+horror.TextSize = 14.000
+horror.TextWrapped = true
+horror.MouseButton1Down:Connect(function()
+	local Workspace = game:GetService("Workspace")
+
+	-- Função para remover Anchor das peças
+	local function removeAnchors(obj)
+		-- Se for um Modelo e tiver Humanoid, não faz nada
+		if obj:IsA("Model") and obj:FindFirstChildOfClass("Humanoid") then
+			return
+		end
+
+		-- Se for uma peça (BasePart) e estiver ancorada, desancorar
+		if obj:IsA("BasePart") and obj.Anchored then
+			obj.Anchored = false
+		end
+
+		-- Verificar filhos dentro de modelos, pastas, etc.
+		for _, child in pairs(obj:GetChildren()) do
+			removeAnchors(child)
+		end
+	end
+
+	-- Executar a função para todo o Workspace
+	removeAnchors(Workspace)
+
+	print("Todas as partes foram desancoradas, exceto modelos com Humanoid!")
+end)
+
+TextLabel.Parent = serversfuckeds
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 0, -0.230000004, 0)
+TextLabel.Size = UDim2.new(0, 380, 0, 50)
+TextLabel.Font = Enum.Font.Unknown
+TextLabel.Text = "servers fuckeds"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 39.000
+
+local player = game.Players.LocalPlayer  -- Referência ao jogador
+local playerGui = player:WaitForChild("PlayerGui")  -- Referência ao PlayerGui
+local screenGuiName = "NomeDaScreenGui"  -- Nome da ScreenGui que você quer restaurar
+
+-- Função para restaurar a ScreenGui
+local function restoreScreenGui()
+	-- Tenta encontrar a ScreenGui no PlayerGui
+	local screenGui = playerGui:FindFirstChild(screenGuiName)
+
+	if not screenGui then
+		-- Se não encontrar, cria uma nova ScreenGui
+		screenGui = Instance.new("ScreenGui")
+		screenGui.Name = screenGuiName
+		screenGui.Parent = playerGui
+	end
+
+	screenGui.Enabled = true  -- Torna a ScreenGui visível
+end
+
+-- Função chamada quando o personagem é adicionado ou renascido
+player.CharacterAdded:Connect(function(character)
+	-- Espera até o humanoide do personagem ser carregado
+	local humanoid = character:WaitForChild("Humanoid")
+
+	-- Detecta quando o humanoide morrer
+	humanoid.Died:Connect(function()
+		-- Chama a função para restaurar a ScreenGui
+		restoreScreenGui()
+	end)
+end)

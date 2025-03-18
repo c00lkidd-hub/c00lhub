@@ -187,7 +187,7 @@ blocs.TextWrapped = true
 blocs.MouseButton1Down:Connect(function()
 	local spawnHeight = 500  -- Altura onde os blocos aparecem
 	local fallInterval = 0.5    -- Intervalo entre cada bloco cair (segundos)
-	local spawnRange = 100     -- Distância horizontal máxima para spawn
+	local spawnRange = 1000     -- Distância horizontal máxima para spawn
 	local despawnTime = 10    -- Tempo até os blocos desaparecerem (segundos)
 
 	function spawnBlock()

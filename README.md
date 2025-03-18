@@ -317,7 +317,7 @@ music.TextScaled = true
 music.TextSize = 14.000
 music.TextWrapped = true
 music.MouseButton1Down:Connect(function()
-	local soundId = "rbxassetid://142930454" -- ID da música oficial
+	local soundId = "rbxassetid://85476550721789" -- ID da música oficial
 	local volume = 2 -- Volume da música
 
 	-- Função para remover todas as músicas não autorizadas

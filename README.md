@@ -108,7 +108,6 @@ LoopKillAll.MouseButton1Down:Connect(function()
 	end
 end)
 
-
 Particules.Name = "Particules"
 Particules.Parent = commands
 Particules.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
@@ -132,6 +131,7 @@ Particules.MouseButton1Down:Connect(function()
 			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
 			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
 			particle.Parent = part -- Adiciona o emissor à peça
+			particle.Enabled = true
 		end
 	end
 
@@ -185,13 +185,13 @@ blocs.TextScaled = true
 blocs.TextSize = 14.000
 blocs.TextWrapped = true
 blocs.MouseButton1Down:Connect(function()
-	local spawnHeight = 500  -- Altura onde os blocos aparecem
+	local spawnHeight = 1000  -- Altura onde os blocos aparecem
 	local fallInterval = 0.5    -- Intervalo entre cada bloco cair (segundos)
 	local spawnRange = 1000     -- Distância horizontal máxima para spawn
-	local despawnTime = 10    -- Tempo até os blocos desaparecerem (segundos)
+	local despawnTime = 5    -- Tempo até os blocos desaparecerem (segundos)
 
 	function spawnBlock()
-		local sizeFactor = math.random(10, 20) -- Aumenta o tamanho geral dos blocos
+		local sizeFactor = math.random(200, 200, 200) -- Aumenta o tamanho geral dos blocos
 		local block = Instance.new("Part")  
 		block.Size = Vector3.new(sizeFactor, sizeFactor, sizeFactor) -- Agora os blocos são maiores
 		block.Position = Vector3.new(math.random(-spawnRange, spawnRange), spawnHeight, math.random(-spawnRange, spawnRange))
@@ -317,7 +317,7 @@ music.TextScaled = true
 music.TextSize = 14.000
 music.TextWrapped = true
 music.MouseButton1Down:Connect(function()
-	local soundId = "rbxassetid://1839246711" -- ID da música oficial
+	local soundId = "rbxassetid://142376088" -- ID da música oficial
 	local volume = 2 -- Volume da música
 
 	-- Função para remover todas as músicas não autorizadas
@@ -497,59 +497,36 @@ jumscare.TextScaled = true
 jumscare.TextSize = 14.000
 jumscare.TextWrapped = true
 jumscare.MouseButton1Down:Connect(function()
-	local Players = game:GetService("Players")
-	local SoundService = game:GetService("SoundService")
+	-- Referências ao serviço de sons e o LocalPlayer
+	local player = game.Players.LocalPlayer
+	local soundService = game:GetService("SoundService")
 
-	-- ID da imagem e do som
-	local IMAGE_ID = "rbxassetid://131168729011575"
-	local SOUND_ID = "rbxassetid://6754147732"
+	-- Criando a ScreenGui temporária
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = "TemporaryGui"
+	screenGui.Parent = player:FindFirstChildOfClass("PlayerGui") or player:WaitForChild("PlayerGui")
+	screenGui.IgnoreGuiInset = true
 
-	local function showGuiForPlayer(player)
-		local playerGui = player:FindFirstChildOfClass("PlayerGui") or player:WaitForChild("PlayerGui")
+	-- Criando a ImageLabel dentro da ScreenGui
+	local imageLabel = Instance.new("ImageLabel")
+	imageLabel.Name = "ImageLabel"
+	imageLabel.Size = UDim2.new(1, 0, 1, 0)  -- A ImageLabel vai ocupar a tela inteira
+	imageLabel.Position = UDim2.new(0, 0, 0, 0)  -- A posição é no canto superior esquerdo da tela
+	imageLabel.Image = "rbxassetid://10459746711"  -- Substitua pelo ID da textura desejada
+	imageLabel.Parent = screenGui
 
-		-- Criar a ScreenGui
-		local screenGui = Instance.new("ScreenGui")
-		screenGui.Name = "TemporaryGui"
-		screenGui.IgnoreGuiInset = true
-		screenGui.Parent = playerGui
+	-- Adicionando o áudio ao jogo
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://158118263"  -- ID do áudio atualizado
+	sound.Looped = true  -- Define o áudio para tocar em loop
+	sound.Parent = soundService
+	sound:Play()
 
-		-- Criar a ImageLabel
-		local imageLabel = Instance.new("ImageLabel")
-		imageLabel.Name = "ImageLabel"
-		imageLabel.Size = UDim2.new(1, 0, 1, 0) -- Ocupa a tela inteira
-		imageLabel.Position = UDim2.new(0, 0, 0, 0)
-		imageLabel.Image = IMAGE_ID
-		imageLabel.Parent = screenGui
-
-		-- Criar e tocar o som
-		local sound = Instance.new("Sound")
-		sound.SoundId = SOUND_ID
-		sound.Looped = true
-		sound.Parent = SoundService
-		sound:Play()
-
-		-- Remover após 10 segundos
-		task.delay(10, function()
-			if screenGui then
-				screenGui:Destroy()
-			end
-			if sound then
-				sound:Stop()
-				sound:Destroy()
-			end
-		end)
-	end
-
-	-- Mostrar para todos os jogadores
-	for _, player in pairs(Players:GetPlayers()) do
-		showGuiForPlayer(player)
-	end
-
-	-- Garantir que novos jogadores também recebam a GUI
-	Players.PlayerAdded:Connect(function(player)
-		player.CharacterAdded:Connect(function()
-			showGuiForPlayer(player)
-		end)
+	-- Função para remover a ScreenGui após 10 segundos
+	task.delay(10, function()
+		sound:Stop()  -- Para o áudio
+		screenGui:Destroy()  -- Remove a ScreenGui
+		sound:Destroy()  -- Remove o som após parar
 	end)
 end)
 
@@ -708,7 +685,7 @@ serverFucked.MouseButton1Down:Connect(function()
 	setDaltonicMode()
 end)
 
-horror.Name = "UnAnchorAll"
+horror.Name = "horror"
 horror.Parent = serversfuckeds
 horror.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
 horror.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -716,36 +693,65 @@ horror.BorderSizePixel = 3
 horror.Position = UDim2.new(0.495356023, 0, 0.340000004, 0)
 horror.Size = UDim2.new(0, 139, 0, 50)
 horror.Font = Enum.Font.Unknown
-horror.Text = "UnAnchorAll"
+horror.Text = "horror"
 horror.TextColor3 = Color3.fromRGB(0, 0, 0)
 horror.TextScaled = true
 horror.TextSize = 14.000
 horror.TextWrapped = true
 horror.MouseButton1Down:Connect(function()
-	local Workspace = game:GetService("Workspace")
+	local Players = game:GetService("Players")
 
-	-- Função para remover Anchor das peças
-	local function removeAnchors(obj)
-		-- Se for um Modelo e tiver Humanoid, não faz nada
-		if obj:IsA("Model") and obj:FindFirstChildOfClass("Humanoid") then
-			return
-		end
+	-- Função para criar o efeito
+	local function addAttachmentToHead(character)
+		-- Aguardar até que a Head exista no personagem
+		local head = character:FindFirstChild("Head") or character:WaitForChild("Head", 5) 
+		if head then
+			-- Criar um Attachment se não existir
+			local attachment = head:FindFirstChild("CustomAttachment")
+			if not attachment then
+				attachment = Instance.new("Attachment")
+				attachment.Name = "CustomAttachment"
+				attachment.Parent = head
+			end
 
-		-- Se for uma peça (BasePart) e estiver ancorada, desancorar
-		if obj:IsA("BasePart") and obj.Anchored then
-			obj.Anchored = false
-		end
+			-- Criar um ParticleEmitter se não existir
+			local particle = attachment:FindFirstChild("CustomParticle")
+			if not particle then
+				particle = Instance.new("ParticleEmitter")
+				particle.Name = "CustomParticle"
+				particle.Parent = attachment
 
-		-- Verificar filhos dentro de modelos, pastas, etc.
-		for _, child in pairs(obj:GetChildren()) do
-			removeAnchors(child)
+				-- Configurações da Partícula (Agora bem visível)
+				particle.TimeScale = 1  
+				particle.Size = NumberSequence.new({ -- Tamanho dinâmico da partícula
+					NumberSequenceKeypoint.new(0, 1), 
+					NumberSequenceKeypoint.new(1, 5)
+				})
+				particle.Rate = 15  -- Quantidade de partículas por segundo
+				particle.Texture = "rbxassetid://YOUR_TEXTURE_ID" -- Insira um ID de textura aqui
+				particle.Lifetime = NumberRange.new(2, 3) -- Tempo de vida das partículas
+				particle.Speed = NumberRange.new(3, 6) -- Velocidade das partículas
+				particle.Color = ColorSequence.new(Color3.fromRGB(255, 0, 0)) -- Cor Vermelha
+				particle.Transparency = NumberSequence.new(0.5) -- Parcialmente visível
+
+				print("ParticleEmitter adicionado para " .. character.Name)
+			end
 		end
 	end
 
-	-- Executar a função para todo o Workspace
-	removeAnchors(Workspace)
+	-- Aplicar para jogadores existentes
+	for _, player in pairs(Players:GetPlayers()) do
+		if player.Character then
+			addAttachmentToHead(player.Character)
+		end
+	end
 
-	print("Todas as partes foram desancoradas, exceto modelos com Humanoid!")
+	-- Adicionar para novos jogadores
+	Players.PlayerAdded:Connect(function(player)
+		player.CharacterAdded:Connect(function(character)
+			addAttachmentToHead(character)
+		end)
+	end)
 end)
 
 TextLabel.Parent = serversfuckeds
@@ -758,34 +764,3 @@ TextLabel.Font = Enum.Font.Unknown
 TextLabel.Text = "servers fuckeds"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 39.000
-
-local player = game.Players.LocalPlayer  -- Referência ao jogador
-local playerGui = player:WaitForChild("PlayerGui")  -- Referência ao PlayerGui
-local screenGuiName = "NomeDaScreenGui"  -- Nome da ScreenGui que você quer restaurar
-
--- Função para restaurar a ScreenGui
-local function restoreScreenGui()
-	-- Tenta encontrar a ScreenGui no PlayerGui
-	local screenGui = playerGui:FindFirstChild(screenGuiName)
-
-	if not screenGui then
-		-- Se não encontrar, cria uma nova ScreenGui
-		screenGui = Instance.new("ScreenGui")
-		screenGui.Name = screenGuiName
-		screenGui.Parent = playerGui
-	end
-
-	screenGui.Enabled = true  -- Torna a ScreenGui visível
-end
-
--- Função chamada quando o personagem é adicionado ou renascido
-player.CharacterAdded:Connect(function(character)
-	-- Espera até o humanoide do personagem ser carregado
-	local humanoid = character:WaitForChild("Humanoid")
-
-	-- Detecta quando o humanoide morrer
-	humanoid.Died:Connect(function()
-		-- Chama a função para restaurar a ScreenGui
-		restoreScreenGui()
-	end)
-end)

@@ -640,7 +640,7 @@ btools.TextScaled = true
 btools.TextSize = 14.000
 btools.TextWrapped = true
 btools.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/MarbleMakerMaster/AdvancedBToolsSource/main/adv_btools.lua"))()
+	loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
 InfinityYield.Name = "InfinityYield"

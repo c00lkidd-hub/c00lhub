@@ -487,9 +487,9 @@ particulas.TextSize = 14.000
 particulas.TextWrapped = true
 particulas.MouseButton1Down:Connect(function()
 	local function addParticlesToPart(part)
-		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
-		if not part:FindFirstChild("ParticleEmitter") then
-			local particle = Instance.new("ParticleEmitter")
+	-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
+	if part:IsA("Part") and not part:FindFirstChildOfClass("ParticleEmitter") then
+		local particle = Instance.new("ParticleEmitter")
 			particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula (substitua se quiser)
 			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
 			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas

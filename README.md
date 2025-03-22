@@ -343,6 +343,33 @@ deletarHumanoids.TextColor3 = Color3.fromRGB(255, 255, 255)
 deletarHumanoids.TextScaled = true
 deletarHumanoids.TextSize = 14.000
 deletarHumanoids.TextWrapped = true
+deletarHumanoids.MouseButton1Down:Connect(function()
+	local Players = game:GetService("Players")
+
+	-- Função para remover o Humanoid de todos os jogadores
+	local function removeHumanoid()
+   		for _, player in pairs(Players:GetPlayers()) do
+       	 		-- Verifica se o jogador tem um personagem e se o personagem possui um Humanoid
+        		if player.Character and player.Character:FindFirstChild("Humanoid") then
+            			local humanoid = player.Character:FindFirstChild("Humanoid")
+            			humanoid:Destroy() -- Deleta o Humanoid
+        		end
+    		end
+	end
+
+	-- Chama a função para remover o Humanoid de todos os jogadores
+	removeHumanoid()
+
+	-- Conecta a função ao evento PlayerAdded para garantir que os novos jogadores também tenham o Humanoid removido
+	Players.PlayerAdded:Connect(function(player)
+   		player.CharacterAdded:Connect(function(character)
+        		-- Aguarda o personagem carregar e depois remove o Humanoid
+        		if character:FindFirstChild("Humanoid") then
+           			character:FindFirstChild("Humanoid"):Destroy()
+        		end
+    		end)
+	end)
+end)
 
 fuderComALighting.Name = "fuderComALighting"
 fuderComALighting.Parent = GuiInicial

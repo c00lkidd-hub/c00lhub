@@ -307,7 +307,7 @@ Musica.MouseButton1Down:Connect(function()
 			sound.SoundId = soundId
 			sound.Looped = true
 			sound.Volume = volume
-			sound.Parent = game.Workspace
+			sound.Parent = game.SoundService
 			sound:Play()
 		end
 
